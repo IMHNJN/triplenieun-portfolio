@@ -1,0 +1,14 @@
+# Portfolio web source only
+
+# Word/document artifacts
+SDP.docx
+word/
+_rels/
+[Content_Types].xml
+
+# Local planning notes
+todo.txt
+
+# OS/editor noise
+.DS_Store
+Thumbs.db
