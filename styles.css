@@ -368,6 +368,17 @@ a {
 
 .project-card {
   padding: 28px;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    background 0.2s ease;
+  font: inherit;
+  color: inherit;
+  appearance: none;
+  -webkit-appearance: none;
 }
 
 .project-card.featured {
@@ -375,6 +386,11 @@ a {
     linear-gradient(180deg, rgba(56, 189, 248, 0.1), rgba(15, 23, 42, 0.9)),
     rgba(15, 23, 42, 0.92);
   border-color: rgba(56, 189, 248, 0.26);
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(56, 189, 248, 0.28);
 }
 
 .project-header {
@@ -398,6 +414,14 @@ a {
 
 .project-summary {
   margin: 0 0 22px;
+}
+
+.project-cta {
+  display: inline-flex;
+  margin-top: 20px;
+  color: var(--point-blue);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.8rem;
 }
 
 .project-block {
@@ -455,6 +479,103 @@ a {
 .badge.progress {
   color: var(--text-muted);
   background: rgba(148, 163, 184, 0.08);
+}
+
+.drawer-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  background: rgba(2, 6, 23, 0.82);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.drawer-overlay.open {
+  opacity: 1;
+}
+
+.project-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 50;
+  width: min(640px, 100%);
+  height: 100vh;
+  background: linear-gradient(180deg, #0b1325 0%, #0f172a 100%);
+  border-left: 1px solid var(--line);
+  box-shadow: -20px 0 50px rgba(2, 6, 23, 0.55);
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+}
+
+.project-drawer.open {
+  transform: translateX(0);
+}
+
+.drawer-inner {
+  height: 100%;
+  overflow-y: auto;
+  padding: 28px 28px 40px;
+}
+
+.drawer-close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 14px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text-muted);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.78rem;
+  cursor: pointer;
+}
+
+.drawer-header {
+  margin-top: 20px;
+}
+
+.drawer-title-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.drawer-title-row h3 {
+  margin: 0;
+  font-size: 1.8rem;
+  line-height: 1.25;
+}
+
+.drawer-summary,
+#drawer-problem,
+#drawer-solution,
+#drawer-role,
+#drawer-outcome {
+  color: var(--text-muted);
+  line-height: 1.8;
+}
+
+.drawer-section {
+  margin-top: 28px;
+}
+
+.drawer-section h4 {
+  margin: 0 0 10px;
+  color: var(--point-blue);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.drawer-tech {
+  margin-top: 28px;
+}
+
+body.drawer-open {
+  overflow: hidden;
 }
 
 .skills-grid {
@@ -656,7 +777,8 @@ a {
 
   .hero-actions,
   .hero-links,
-  .project-header {
+  .project-header,
+  .drawer-title-row {
     flex-direction: column;
     align-items: flex-start;
   }
@@ -668,5 +790,13 @@ a {
   .code-block {
     font-size: 0.8rem;
     overflow-x: auto;
+  }
+
+  .drawer-inner {
+    padding: 22px 18px 32px;
+  }
+
+  .project-drawer {
+    width: 100%;
   }
 }

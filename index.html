@@ -176,7 +176,13 @@
         </div>
 
         <div class="project-grid">
-          <article class="project-card featured">
+          <button
+            type="button"
+            class="project-card featured project-trigger"
+            data-project="community"
+            aria-haspopup="dialog"
+            aria-controls="project-drawer"
+          >
             <div class="project-header">
               <div>
                 <p class="project-status">TEAM PROJECT</p>
@@ -189,33 +195,6 @@
               외국인 유학생도 함께 사용할 수 있도록 번역 기능과 책임 기반 구조를
               도입한 대학 커뮤니티 서비스입니다.
             </p>
-            <div class="project-block">
-              <h4>// Problem</h4>
-              <p>
-                익명성을 악용한 혐오 표현 문제와, 한국어 중심 커뮤니티에서 외국인
-                유학생이 참여하기 어려운 문제를 발견했습니다.
-              </p>
-            </div>
-            <div class="project-block">
-              <h4>// Solution</h4>
-              <p>
-                학과와 국적 등 일부 정보를 공개하는 구조로 책임감을 높였고, AI
-                번역 기능으로 언어 장벽을 낮췄습니다.
-              </p>
-            </div>
-            <div class="project-block">
-              <h4>// My Role</h4>
-              <p>
-                팀장으로서 일정과 역할을 조율했고, 레이어드 아키텍처 예시 템플릿과
-                Swagger 기반 API 명세를 정리해 협업 기반을 만들었습니다.
-              </p>
-            </div>
-            <ul class="feature-list">
-              <li>게시글 / 댓글 기반 커뮤니티 기능</li>
-              <li>AI 기반 번역 기능</li>
-              <li>개인 및 다수 메시지 기능</li>
-              <li>주변 식당 리뷰 기능</li>
-            </ul>
             <div class="tech-tags">
               <span>Spring Boot</span>
               <span>PostgreSQL</span>
@@ -223,56 +202,109 @@
               <span>Docker</span>
               <span>GitHub Actions</span>
             </div>
-          </article>
+            <span class="project-cta">상세 보기</span>
+          </button>
 
-          <article class="project-card">
+          <button
+            type="button"
+            class="project-card project-trigger"
+            data-project="lms"
+            aria-haspopup="dialog"
+            aria-controls="project-drawer"
+          >
             <div class="project-header">
               <div>
                 <p class="project-status">TEAM PROJECT</p>
                 <h3>AI 기반 LMS 개발</h3>
               </div>
-              <span class="badge progress">In Progress</span>
+              <!-- <span class="badge progress">In Progress</span> -->
             </div>
             <p class="project-period">2025.03.03 - 2025.06.20</p>
             <p class="project-summary">
               강의자료 업로드만으로 요약과 퀴즈 생성을 자동화해 학습 부담을 줄이는
               AI 기반 LMS 프로젝트입니다.
             </p>
-            <div class="project-block">
-              <h4>// Problem</h4>
-              <p>
-                채팅 UI 기반 AI 학습은 결과 관리가 어렵고, 사용자 프롬프팅 능력에
-                따라 품질 차이가 크다는 문제를 해결하고자 했습니다.
-              </p>
-            </div>
-            <div class="project-block">
-              <h4>// Solution</h4>
-              <p>
-                강의자료 업로드 후 자동 번역, 요약, 퀴즈 생성을 제공하고, 미리
-                설계한 프롬프트로 결과 품질을 유도했습니다.
-              </p>
-            </div>
-            <div class="project-block">
-              <h4>// My Role</h4>
-              <p>
-                강의자료 업로드 및 관리 기능을 중심으로 개발했으며, AWS S3와
-                MinIO를 활용한 파일 관리 흐름을 구현했습니다.
-              </p>
-            </div>
-            <ul class="feature-list">
-              <li>강의자료 업로드 및 관리</li>
-              <li>자동 번역 및 요약</li>
-              <li>퀴즈 자동 생성</li>
-              <li>프롬프트 기반 품질 유도</li>
-            </ul>
             <div class="tech-tags">
               <span>Spring</span>
               <span>AWS S3</span>
               <span>MinIO</span>
               <span>Layered Architecture</span>
             </div>
-          </article>
+            <span class="project-cta">상세 보기</span>
+          </button>
+
+          <button
+            type="button"
+            class="project-card project-trigger"
+            data-project="drawing"
+            aria-haspopup="dialog"
+            aria-controls="project-drawer"
+          >
+            <div class="project-header">
+              <div>
+                <p class="project-status">TEAM PROJECT</p>
+                <h3>낙서 인식 웹사이트 개발</h3>
+              </div>
+              <!-- <span class="badge">AI Project</span> -->
+            </div>
+            <p class="project-period">2024.09.01 - 2024.10.31</p>
+            <p class="project-summary">
+              사용자가 그린 낙서를 인식해 무엇을 그렸는지 분류하는 AI 기반 웹서비스입니다.
+            </p>
+            <div class="tech-tags">
+              <span>Flask</span>
+              <span>PyTorch</span>
+              <span>GitHub</span>
+              <span>GCP</span>
+            </div>
+            <span class="project-cta">상세 보기</span>
+          </button>
         </div>
+
+        <div class="drawer-overlay" data-drawer-close hidden></div>
+        <aside
+          id="project-drawer"
+          class="project-drawer"
+          aria-hidden="true"
+          aria-labelledby="drawer-title"
+        >
+          <div class="drawer-inner">
+            <button type="button" class="drawer-close" data-drawer-close aria-label="닫기">
+              CLOSE
+            </button>
+            <div class="drawer-header">
+              <p id="drawer-status" class="project-status"></p>
+              <div class="drawer-title-row">
+                <h3 id="drawer-title"></h3>
+                <span id="drawer-badge" class="badge"></span>
+              </div>
+              <p id="drawer-period" class="project-period"></p>
+              <p id="drawer-summary" class="drawer-summary"></p>
+            </div>
+
+            <div class="drawer-section">
+              <h4>// Problem</h4>
+              <p id="drawer-problem"></p>
+            </div>
+            <div class="drawer-section">
+              <h4>// Solution</h4>
+              <p id="drawer-solution"></p>
+            </div>
+            <div class="drawer-section">
+              <h4>// My Role</h4>
+              <p id="drawer-role"></p>
+            </div>
+            <div class="drawer-section">
+              <h4>// Key Features</h4>
+              <ul id="drawer-features" class="feature-list"></ul>
+            </div>
+            <div class="drawer-section">
+              <h4>// Outcome</h4>
+              <p id="drawer-outcome"></p>
+            </div>
+            <div id="drawer-tech" class="tech-tags drawer-tech"></div>
+          </div>
+        </aside>
       </section>
 
       <section id="skills" class="section skills">
@@ -395,5 +427,155 @@
         </div>
       </section>
     </main>
+    <script>
+      const projectData = {
+        community: {
+          status: "TEAM PROJECT",
+          badge: { label: "Main Project", className: "live" },
+          title: "대학 커뮤니티 웹서비스 개발",
+          period: "2025.09.01 - 2025.12.19",
+          summary:
+            "외국인 유학생도 함께 사용할 수 있도록 번역 기능과 책임 기반 구조를 도입한 대학 커뮤니티 서비스입니다.",
+          problem:
+            "익명성을 악용한 혐오 표현 문제와, 한국어 중심 커뮤니티에서 외국인 유학생이 참여하기 어려운 문제를 발견했습니다.",
+          solution:
+            "학과와 국적 등 일부 정보를 공개하는 구조로 책임감을 높였고, AI 번역 기능으로 언어 장벽을 낮췄습니다.",
+          role:
+            "팀장으로서 일정과 역할을 조율했고, 레이어드 아키텍처 예시 템플릿과 Swagger 기반 API 명세를 정리해 협업 기반을 만들었습니다.",
+          features: [
+            "게시글 / 댓글 기반 커뮤니티 기능",
+            "AI 기반 번역 기능",
+            "개인 및 다수 메시지 기능",
+            "주변 식당 리뷰 기능",
+          ],
+          outcome:
+            "기본 커뮤니티 기능에 번역, 메시지, 리뷰 기능까지 포함한 서비스를 개발 및 배포했고, 프로젝트 초반에 구조와 API 기준을 정리하며 협업 흐름을 안정화했습니다.",
+          tech: ["Spring Boot", "PostgreSQL", "Swagger", "Docker", "GitHub Actions"],
+        },
+        lms: {
+          status: "TEAM PROJECT",
+          badge: { label: "In Progress", className: "progress" },
+          title: "AI 기반 LMS 개발",
+          period: "2025.03.03 - 2025.06.20",
+          summary:
+            "강의자료 업로드만으로 요약과 퀴즈 생성을 자동화해 학습 부담을 줄이는 AI 기반 LMS 프로젝트입니다.",
+          problem:
+            "채팅 UI 기반 AI 학습은 결과 관리가 어렵고, 사용자 프롬프팅 능력에 따라 품질 차이가 크다는 문제를 해결하고자 했습니다.",
+          solution:
+            "강의자료 업로드 후 자동 번역, 요약, 퀴즈 생성을 제공하고, 미리 설계한 프롬프트로 결과 품질을 유도했습니다.",
+          role:
+            "강의자료 업로드 및 관리 기능을 중심으로 개발했으며, AWS S3와 MinIO를 활용한 파일 관리 흐름을 구현했습니다.",
+          features: [
+            "강의자료 업로드 및 관리",
+            "자동 번역 및 요약",
+            "퀴즈 자동 생성",
+            "프롬프트 기반 품질 유도",
+          ],
+          outcome:
+            "전공 학습에 필요한 자료 정리와 문제 생성 과정을 줄여, 사용자가 보다 쉽게 AI 기반 학습 기능을 활용할 수 있는 방향을 제시했습니다.",
+          tech: ["Spring", "AWS S3", "MinIO", "Layered Architecture"],
+        },
+        drawing: {
+          status: "TEAM PROJECT",
+          badge: { label: "AI Project", className: "" },
+          title: "낙서 인식 웹사이트 개발",
+          period: "2024.09.01 - 2024.10.31",
+          summary:
+            "사용자가 그린 낙서를 인식해 무엇을 그렸는지 분류하는 AI 기반 웹서비스입니다.",
+          problem:
+            "학습한 모델을 실제 서비스에서 어떻게 활용할지 고민하던 중 Quick, Draw! 데이터셋을 발견했고, 서비스 목적에 맞게 전처리하면서 추론 속도와 정확도를 함께 고려해야 했습니다.",
+          solution:
+            "실시간에 가까운 응답을 위해 기존 선형 데이터를 64 x 64 벡터로 변환하는 전처리 파이프라인을 구성하고, CNN 기반 구조와 ResNet101 + SENet 실험을 통해 성능을 개선했습니다.",
+          role:
+            "팀장으로서 일정과 역할을 조율했고, 데이터 전처리 파이프라인 구축과 모델 학습을 맡았습니다. 또한 프론트엔드와 백엔드를 모두 직접 구현하고 배포까지 진행했습니다.",
+          features: [
+            "사용자가 그린 낙서를 입력받아 실시간에 가깝게 인식 결과를 반환하는 웹서비스",
+            "Quick, Draw! 데이터셋을 서비스 목적에 맞게 전처리한 추론 파이프라인",
+            "CNN 구조와 ResNet101 + SENet 조합을 비교·실험한 모델 개선 과정",
+            "프론트엔드, 백엔드, 배포까지 직접 수행한 end-to-end 개발 경험",
+          ],
+          outcome:
+            "데이터 전처리부터 모델 개선, 웹 구현, 배포까지 전체 흐름을 직접 경험했고, 정확도뿐 아니라 사용자가 체감하는 응답 속도와 결과의 납득 가능성까지 함께 고려하는 관점을 익혔습니다.",
+          tech: ["Flask", "PyTorch", "Git", "GitHub", "GCP"],
+        },
+      };
+
+      const drawer = document.getElementById("project-drawer");
+      const overlay = document.querySelector(".drawer-overlay");
+      const titleEl = document.getElementById("drawer-title");
+      const statusEl = document.getElementById("drawer-status");
+      const badgeEl = document.getElementById("drawer-badge");
+      const periodEl = document.getElementById("drawer-period");
+      const summaryEl = document.getElementById("drawer-summary");
+      const problemEl = document.getElementById("drawer-problem");
+      const solutionEl = document.getElementById("drawer-solution");
+      const roleEl = document.getElementById("drawer-role");
+      const featuresEl = document.getElementById("drawer-features");
+      const outcomeEl = document.getElementById("drawer-outcome");
+      const techEl = document.getElementById("drawer-tech");
+      const triggers = document.querySelectorAll(".project-trigger");
+      const closers = document.querySelectorAll("[data-drawer-close]");
+
+      function openDrawer(key) {
+        const project = projectData[key];
+        if (!project) return;
+
+        statusEl.textContent = project.status;
+        titleEl.textContent = project.title;
+        badgeEl.textContent = project.badge.label;
+        badgeEl.className = "badge";
+        if (project.badge.className) badgeEl.classList.add(project.badge.className);
+        periodEl.textContent = project.period;
+        summaryEl.textContent = project.summary;
+        problemEl.textContent = project.problem;
+        solutionEl.textContent = project.solution;
+        roleEl.textContent = project.role;
+        outcomeEl.textContent = project.outcome;
+
+        featuresEl.innerHTML = "";
+        project.features.forEach((feature) => {
+          const li = document.createElement("li");
+          li.textContent = feature;
+          featuresEl.appendChild(li);
+        });
+
+        techEl.innerHTML = "";
+        project.tech.forEach((tech) => {
+          const span = document.createElement("span");
+          span.textContent = tech;
+          techEl.appendChild(span);
+        });
+
+        drawer.classList.add("open");
+        overlay.hidden = false;
+        overlay.classList.add("open");
+        drawer.setAttribute("aria-hidden", "false");
+        document.body.classList.add("drawer-open");
+      }
+
+      function closeDrawer() {
+        drawer.classList.remove("open");
+        overlay.classList.remove("open");
+        drawer.setAttribute("aria-hidden", "true");
+        document.body.classList.remove("drawer-open");
+        setTimeout(() => {
+          if (!drawer.classList.contains("open")) overlay.hidden = true;
+        }, 250);
+      }
+
+      triggers.forEach((trigger) => {
+        trigger.addEventListener("click", () => openDrawer(trigger.dataset.project));
+      });
+
+      closers.forEach((closer) => {
+        closer.addEventListener("click", closeDrawer);
+      });
+
+      window.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && drawer.classList.contains("open")) {
+          closeDrawer();
+        }
+      });
+    </script>
   </body>
 </html>
