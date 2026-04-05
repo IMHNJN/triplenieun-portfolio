@@ -3,579 +3,656 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>윤현준 | Developer Portfolio</title>
+    <title>Hyunjun Yoon | Developer Portfolio</title>
     <meta
       name="description"
-      content="문제를 구조적으로 정리하고 끝까지 구현하는 개발자 윤현준의 포트폴리오입니다."
-    />
-    <meta
-      name="keywords"
-      content="윤현준, 포트폴리오, 백엔드 개발자, 풀스택 개발자, Spring Boot, React"
+      content="Backend developer portfolio focused on structured problem solving, reliable implementation, and collaboration."
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Noto+Sans+KR:wght@400;500;700;800&family=Space+Grotesk:wght@500;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,500;6..72,700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
-    <div class="bg-spotlight" aria-hidden="true"></div>
-
-    <header class="site-header">
-      <div class="header-inner">
-        <a class="header-logo" href="#hero">triplenieun</a>
-        <nav class="site-nav" aria-label="주요 섹션">
-          <a href="#about">About</a>
-          <a href="#projects">Projects</a>
-          <a href="#skills">Skills</a>
-          <a href="#experiences">Experiences</a>
-          <a href="#contact">Contact</a>
-        </nav>
+    <aside class="side-nav" aria-label="Section navigation">
+      <div class="language-toggle" role="group" aria-label="Language selector">
+        <button type="button" class="lang-button is-active" data-lang="ko">KR</button>
+        <button type="button" class="lang-button" data-lang="en">EN</button>
       </div>
-    </header>
 
-    <main class="container">
-      <section id="hero" class="hero">
-        <div class="hero-copy">
-          <p class="eyebrow">Backend Developer / Problem Solver</p>
-          <h1>Hello, I'm Hyunjun.</h1>
-          <p class="hero-text">
-            백엔드 개발을 중심으로 서비스를 설계하고 구현하며, 필요할 때는 기획과
-            협업의 기준까지 함께 정리하는 개발자입니다. 프로젝트를 실제 결과물로
-            연결하는 실행력과, 팀이 함께 움직일 수 있도록 구조를 만드는 역할에
-            강점을 두고 있습니다.
+      <nav class="side-nav-links">
+        <a href="#home" class="nav-link is-active">
+          <span class="nav-icon" aria-hidden="true">H</span>
+          <span class="nav-text" data-nav="home">홈</span>
+        </a>
+        <a href="#projects" class="nav-link">
+          <span class="nav-icon" aria-hidden="true">P</span>
+          <span class="nav-text" data-nav="projects">프로젝트</span>
+        </a>
+        <a href="#experience" class="nav-link">
+          <span class="nav-icon" aria-hidden="true">E</span>
+          <span class="nav-text" data-nav="experience">경험</span>
+        </a>
+        <a href="#contact" class="nav-link">
+          <span class="nav-icon" aria-hidden="true">C</span>
+          <span class="nav-text" data-nav="contact">연락</span>
+        </a>
+      </nav>
+    </aside>
+
+    <main class="page-shell">
+      <section id="home" class="section hero">
+        <div class="content-block hero-block">
+          <p id="hero-kicker" class="hero-kicker">백엔드 개발자 / 빌더</p>
+          <h1>Hyunjun Yoon</h1>
+          <p id="hero-summary" class="hero-summary">
+            백엔드 개발자이자 문제 해결을 좋아하는 사람입니다. 명확한 구조를 설계하고,
+            신뢰할 수 있는 결과물을 만들며, 기획과 구현을 연결해 팀이 더 자신 있게
+            움직일 수 있도록 돕습니다.
           </p>
-        </div>
-
-        <div class="hero-panel">
-          <div class="panel-shell">
-            <div class="panel-bar">
-              <span></span>
-              <span></span>
-              <span></span>
-            </div>
-            <div class="code-block">
-              <span class="line">
-                <span class="c-blue">const</span>
-                <span class="c-white"> developer = {</span>
-              </span>
-              <span class="line">
-                <span class="indent">name:</span>
-                <span class="c-string">'Hyunjun Yoon'</span>,
-              </span>
-              <span class="line">
-                <span class="indent">focus:</span>
-                <span class="c-string">'Backend + Collaboration'</span>,
-              </span>
-              <span class="line">
-                <span class="indent">skills:</span>
-                <span class="c-string">['Java', 'Spring Boot', 'React']</span>,
-              </span>
-              <span class="line">
-                <span class="indent">strengths:</span>
-                <span class="c-string">['구조화', '문서화', '실행력']</span>,
-              </span>
-              <span class="line">
-                <span class="indent">hardWorker:</span>
-                <span class="c-blue">true</span>,
-              </span>
-              <span class="line">
-                <span class="indent">teamPlayer:</span>
-                <span class="c-blue">true</span>
-              </span>
-              <span class="line c-white">};</span>
-            </div>
+          <div class="inline-links">
+            <a href="https://x.com/" target="_blank" rel="noreferrer">X (Twitter)</a>
+            <a href="https://github.com/IMHNJN" target="_blank" rel="noreferrer">GitHub</a>
+            <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer">LinkedIn</a>
+            <a id="hero-email-link" href="mailto:triplenieun@gmail.com">이메일</a>
           </div>
         </div>
       </section>
 
-      <section id="about" class="section about">
-        <div class="section-heading">
-          <p class="section-index">About</p>
-        </div>
+      <section id="projects" class="section">
+        <div class="content-block">
+          <div id="project-list-view" class="project-view is-visible">
+            <div class="section-head">
+              <h2 id="projects-heading">프로젝트</h2>
+            </div>
 
-        <div class="about-grid">
-          <div class="about-main card">
-            <h3 class="section-subtitle">Communicate with structure, implement with ownership.</h3>
-            <p>
-              저는 사용자와 서비스 흐름을 함께 고민하는 백엔드 개발자를 지향합니다.
-              기능을 빠르게 만드는 것보다, 먼저 문제를 정리하고 팀이 이해할 수 있는
-              구조를 세우는 과정이 중요하다고 생각합니다.
-            </p>
-            <p>
-              팀 프로젝트에서는 기능 구현뿐 아니라 일정 정리, 역할 분담, API 명세
-              작성, 예시 템플릿 구성처럼 협업의 기준을 만드는 역할을 맡아왔습니다.
-              덕분에 저는 단순히 코드를 작성하는 사람을 넘어, 팀이 같은 방향으로
-              움직일 수 있도록 돕는 개발자로 성장하고 있습니다.
-            </p>
-            <p>
-              앞으로는 안정적인 백엔드 구현 역량을 더 깊게 쌓는 동시에, 사용자
-              경험과 서비스 운영까지 고려할 수 있는 개발자로 성장하고 싶습니다.
-            </p>
+            <div class="project-list">
+              <button type="button" class="project-row" data-project="community">
+                <span class="project-copy">
+                  <strong data-project-title="community">외국인 유학생 커뮤니티 플랫폼</strong>
+                  <span data-project-summary="community">
+                    번역 지원과 책임 기반 참여 구조를 통해 외국인 유학생의 진입 장벽을
+                    낮추는 커뮤니티 서비스를 구축했습니다.
+                  </span>
+                </span>
+                <span class="project-arrow" aria-hidden="true">></span>
+              </button>
+
+              <button type="button" class="project-row" data-project="lms">
+                <span class="project-copy">
+                  <strong data-project-title="lms">AI 기반 LMS</strong>
+                  <span data-project-summary="lms">
+                    업로드한 강의 자료를 요약과 퀴즈 학습 흐름으로 연결하는 LMS 경험을
+                    설계했습니다.
+                  </span>
+                </span>
+                <span class="project-arrow" aria-hidden="true">></span>
+              </button>
+
+              <button type="button" class="project-row" data-project="drawing">
+                <span class="project-copy">
+                  <strong data-project-title="drawing">AI 그림 인식 서비스</strong>
+                  <span data-project-summary="drawing">
+                    사용자의 스케치를 실시간으로 인식하고 모델 실험을 제품 형태로
+                    연결한 end-to-end AI 서비스를 구현했습니다.
+                  </span>
+                </span>
+                <span class="project-arrow" aria-hidden="true">></span>
+              </button>
+            </div>
           </div>
 
-          <div class="about-side">
-            <div class="spec-card card">
-              <span class="spec-label">Problem_Solving</span>
-              <p>기능 구현 전에 문제와 흐름을 먼저 구조화합니다.</p>
-            </div>
-            <div class="spec-card card">
-              <span class="spec-label">Collaboration_Base</span>
-              <p>문서화와 기준 정리를 통해 팀 협업이 잘 돌아가도록 돕습니다.</p>
-            </div>
-            <div class="spec-card card">
-              <span class="spec-label">Build_to_End</span>
-              <p>기획부터 구현, 배포까지 실제 결과물로 연결하는 실행력을 중요하게 생각합니다.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="section roadmap">
-        <div class="section-heading">
-          <p class="section-index">Roadmap</p>
-        </div>
-
-        <div class="timeline">
-          <article class="timeline-item">
-            <span class="timeline-year">2023</span>
-            <div>
-              <h3>동아리 활동과 콘텐츠 제작 경험</h3>
-              <p>결과물을 책임지고 완성하는 태도와 협업 감각을 키우기 시작한 시기입니다.</p>
-            </div>
-          </article>
-          <article class="timeline-item">
-            <span class="timeline-year">2024</span>
-            <div>
-              <h3>근로 및 교육 봉사 활동</h3>
-              <p>다양한 사람과 소통하며 정확한 전달력과 실무적 책임감을 기른 시기입니다.</p>
-            </div>
-          </article>
-          <article class="timeline-item">
-            <span class="timeline-year">2025</span>
-            <div>
-              <h3>AI 기반 LMS / 대학 커뮤니티 서비스</h3>
-              <p>문제 정의, 구조 설계, 구현, 협업 문서화까지 함께 경험하며 개발자로서의 방향을 구체화했습니다.</p>
-            </div>
-          </article>
-          <article class="timeline-item">
-            <span class="timeline-year">2026</span>
-            <div>
-              <h3>SSAFY 15기</h3>
-              <p>기초 CS, 알고리즘, AI 역량을 체계적으로 다지며 개발 기반을 확장하고 있습니다.</p>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <section id="projects" class="section projects">
-        <div class="section-heading">
-          <p class="section-index">Projects</p>
-        </div>
-
-        <div class="project-grid">
-          <button
-            type="button"
-            class="project-card featured project-trigger"
-            data-project="community"
-            aria-haspopup="dialog"
-            aria-controls="project-drawer"
+          <article
+            id="project-detail-view"
+            class="project-view project-detail"
+            aria-live="polite"
+            hidden
           >
-            <div class="project-header">
-              <div>
-                <p class="project-status">TEAM PROJECT</p>
-                <h3>대학 커뮤니티 웹서비스 개발</h3>
-              </div>
-              <span class="badge live">Main Project</span>
-            </div>
-            <p class="project-period">2025.09.01 - 2025.12.19</p>
-            <p class="project-summary">
-              외국인 유학생도 함께 사용할 수 있도록 번역 기능과 책임 기반 구조를
-              도입한 대학 커뮤니티 서비스입니다.
+            <button type="button" id="project-back-button" class="back-link">&lt; 뒤로</button>
+            <h3 id="detail-title">외국인 유학생 커뮤니티 플랫폼</h3>
+            <p class="status-pill">
+              <span class="status-dot" aria-hidden="true"></span>
+              <span id="detail-status">메인 프로젝트</span>
             </p>
-            <div class="tech-tags">
-              <span>Spring Boot</span>
-              <span>PostgreSQL</span>
-              <span>Swagger</span>
-              <span>Docker</span>
-              <span>GitHub Actions</span>
-            </div>
-            <span class="project-cta">상세 보기</span>
-          </button>
-
-          <button
-            type="button"
-            class="project-card project-trigger"
-            data-project="lms"
-            aria-haspopup="dialog"
-            aria-controls="project-drawer"
-          >
-            <div class="project-header">
-              <div>
-                <p class="project-status">TEAM PROJECT</p>
-                <h3>AI 기반 LMS 개발</h3>
-              </div>
-              <!-- <span class="badge progress">In Progress</span> -->
-            </div>
-            <p class="project-period">2025.03.03 - 2025.06.20</p>
-            <p class="project-summary">
-              강의자료 업로드만으로 요약과 퀴즈 생성을 자동화해 학습 부담을 줄이는
-              AI 기반 LMS 프로젝트입니다.
+            <p id="detail-summary" class="detail-summary">
+              번역 지원과 책임 기반 참여 구조를 통해 외국인 유학생의 진입 장벽을 낮추는
+              커뮤니티 서비스입니다.
             </p>
-            <div class="tech-tags">
-              <span>Spring</span>
-              <span>AWS S3</span>
-              <span>MinIO</span>
-              <span>Layered Architecture</span>
-            </div>
-            <span class="project-cta">상세 보기</span>
-          </button>
-
-          <button
-            type="button"
-            class="project-card project-trigger"
-            data-project="drawing"
-            aria-haspopup="dialog"
-            aria-controls="project-drawer"
-          >
-            <div class="project-header">
+            <div id="detail-tags" class="tag-list"></div>
+            <div class="detail-grid">
               <div>
-                <p class="project-status">TEAM PROJECT</p>
-                <h3>낙서 인식 웹사이트 개발</h3>
+                <p id="detail-role-label" class="detail-label">역할</p>
+                <p id="detail-role">
+                  프로젝트 방향을 정의하고 역할을 조율했으며, Swagger 기반 API 문서와
+                  공통 개발 기반을 정리해 팀 협업을 도왔습니다.
+                </p>
               </div>
-              <!-- <span class="badge">AI Project</span> -->
-            </div>
-            <p class="project-period">2024.09.01 - 2024.10.31</p>
-            <p class="project-summary">
-              사용자가 그린 낙서를 인식해 무엇을 그렸는지 분류하는 AI 기반 웹서비스입니다.
-            </p>
-            <div class="tech-tags">
-              <span>Flask</span>
-              <span>PyTorch</span>
-              <span>GitHub</span>
-              <span>GCP</span>
-            </div>
-            <span class="project-cta">상세 보기</span>
-          </button>
-        </div>
-
-        <div class="drawer-overlay" data-drawer-close hidden></div>
-        <aside
-          id="project-drawer"
-          class="project-drawer"
-          aria-hidden="true"
-          aria-labelledby="drawer-title"
-        >
-          <div class="drawer-inner">
-            <button type="button" class="drawer-close" data-drawer-close aria-label="닫기">
-              CLOSE
-            </button>
-            <div class="drawer-header">
-              <p id="drawer-status" class="project-status"></p>
-              <div class="drawer-title-row">
-                <h3 id="drawer-title"></h3>
-                <span id="drawer-badge" class="badge"></span>
+              <div>
+                <p id="detail-outcome-label" class="detail-label">결과</p>
+                <p id="detail-outcome">
+                  커뮤니티 핵심 기능과 번역, 메시징, 리뷰 기능까지 구현 및 배포하면서
+                  초기 구조 설계가 개발 속도에 미치는 영향을 배웠습니다.
+                </p>
               </div>
-              <p id="drawer-period" class="project-period"></p>
-              <p id="drawer-summary" class="drawer-summary"></p>
             </div>
-
-            <div class="drawer-section">
-              <h4>// Problem</h4>
-              <p id="drawer-problem"></p>
-            </div>
-            <div class="drawer-section">
-              <h4>// Solution</h4>
-              <p id="drawer-solution"></p>
-            </div>
-            <div class="drawer-section">
-              <h4>// My Role</h4>
-              <p id="drawer-role"></p>
-            </div>
-            <div class="drawer-section">
-              <h4>// Key Features</h4>
-              <ul id="drawer-features" class="feature-list"></ul>
-            </div>
-            <div class="drawer-section">
-              <h4>// Outcome</h4>
-              <p id="drawer-outcome"></p>
-            </div>
-            <div id="drawer-tech" class="tech-tags drawer-tech"></div>
-          </div>
-        </aside>
-      </section>
-
-      <section id="skills" class="section skills">
-        <div class="section-heading">
-          <p class="section-index">Skills</p>
-        </div>
-
-        <div class="skills-grid">
-          <article class="skill-card">
-            <div class="skill-heading">
-              <h3>Languages</h3>
-              <span>Core</span>
-            </div>
-            <p>Java, JavaScript, Python</p>
-            <small>객체지향 기반 서버 로직, 웹 기능 구현, AI 활용 실험 경험</small>
-          </article>
-
-          <article class="skill-card">
-            <div class="skill-heading">
-              <h3>Backend / AI</h3>
-              <span>Build</span>
-            </div>
-            <p>Spring Boot, Swagger, PyTorch</p>
-            <small>REST API 개발, 레이어드 구조 설계, 문서화 및 AI 관련 학습 경험</small>
-          </article>
-
-          <article class="skill-card">
-            <div class="skill-heading">
-              <h3>Frontend</h3>
-              <span>UI</span>
-            </div>
-            <p>React, Vite, CSS, Styled Components</p>
-            <small>프로젝트 소개용 UI 구현, 반응형 레이아웃, 정적 웹 개발 환경 구성</small>
-          </article>
-
-          <article class="skill-card">
-            <div class="skill-heading">
-              <h3>Infra / Collaboration</h3>
-              <span>Flow</span>
-            </div>
-            <p>Git, GitHub, GitHub Actions, Docker, WSL</p>
-            <small>버전 관리, 자동 배포, 개발 환경 구성과 협업 경험</small>
-          </article>
-        </div>
-
-        <div class="terminal-card">
-          <div class="terminal-head">
-            <span>skill_profile.sh</span>
-          </div>
-          <div class="terminal-body">
-            <p><span class="prompt">$</span> classify --current-stack</p>
-            <p><span class="state ok">[OK]</span> 주력 기술: Java, Spring Boot, Git/GitHub</p>
-            <p><span class="state ok">[OK]</span> 실전 사용 경험: React, Docker, GitHub Actions, Swagger</p>
-            <p><span class="state warn">[+]</span> 확장 중: Python, PyTorch, 배포 자동화 고도화</p>
-          </div>
-        </div>
-      </section>
-
-      <section id="experiences" class="section experiences">
-        <div class="section-heading">
-          <p class="section-index">Experiences</p>
-        </div>
-
-        <div class="experience-list">
-          <article class="experience-card">
-            <div class="experience-head">
-              <h3>삼성 청년 소프트웨어 / AI 아카데미 (SSAFY) 15기</h3>
-              <span>2026.01.07 - 현재</span>
-            </div>
-            <p>소프트웨어 및 AI 역량 향상 교육을 이수하며 기초 CS와 문제 해결 역량을 체계적으로 다지고 있습니다.</p>
-          </article>
-
-          <article class="experience-card">
-            <div class="experience-head">
-              <h3>아주대학교 유학생입학팀 근로</h3>
-              <span>2024.07.01 - 2025.12.19</span>
-            </div>
-            <p>외국인 유학생 지원 및 재학생 관리 업무를 수행하며 정확한 정보 전달과 실무 처리 역량을 길렀습니다.</p>
-          </article>
-
-          <article class="experience-card">
-            <div class="experience-head">
-              <h3>교육 봉사 동아리 활동</h3>
-              <span>2024.03.11 - 2025.12.19</span>
-            </div>
-            <p>초등학생 대상 소프트웨어 교육을 진행하며 복잡한 내용을 쉽게 설명하는 커뮤니케이션 역량을 키웠습니다.</p>
-          </article>
-
-          <article class="experience-card">
-            <div class="experience-head">
-              <h3>성우 동아리 활동 / 편집부장</h3>
-              <span>2023.03.13 - 2025.12.19</span>
-            </div>
-            <p>공연과 영상 편집 결과물을 책임지고 완성하며 마감 의식과 결과물 완성도에 대한 감각을 키웠습니다.</p>
           </article>
         </div>
       </section>
 
-      <section id="contact" class="section contact">
-        <div class="section-heading">
-          <p class="section-index">Contact</p>
-        </div>
-
-        <div class="contact-grid">
-          <div class="contact-copy card">
-            <h3>Let's build something clear and reliable.</h3>
-            <p>
-              프로젝트, 협업, 또는 포트폴리오와 관련해 이야기 나누고 싶다면
-              편하게 연락 주세요. 백엔드 개발, 협업형 프로젝트, 서비스 구조를 함께
-              고민하는 작업에 특히 관심이 있습니다.
+      <section id="experience" class="section">
+        <div class="content-block experience-block">
+          <div class="section-head">
+            <h2 id="experience-heading">경험</h2>
+            <p class="experience-intro">
+              <strong id="experience-intro-strong">3년+</strong>
+              <span id="experience-intro-text">
+                동안 프로젝트, 실무, 교육 활동을 통해 협업 감각과 책임감, 실전 개발 경험을
+                쌓아왔습니다.
+              </span>
             </p>
           </div>
 
-          <div class="contact-panel card">
-            <a href="mailto:triplenieun@gmail.com">triplenieun@gmail.com</a>
-            <a href="https://github.com/IMHNJN" target="_blank" rel="noreferrer">
-              github.com/IMHNJN
-            </a>
+          <div class="stack-groups">
+            <div class="stack-group">
+              <p id="primary-stack-label" class="stack-label">주요 스택</p>
+              <div class="tag-list">
+                <span>Java</span>
+                <span>Spring Boot</span>
+                <span>REST API</span>
+                <span>Git</span>
+                <span>GitHub</span>
+                <span>Swagger</span>
+              </div>
+            </div>
+
+            <div class="stack-group">
+              <p id="tools-stack-label" class="stack-label">도구 및 확장 경험</p>
+              <div class="tag-list">
+                <span>React</span>
+                <span>JavaScript</span>
+                <span>AWS S3</span>
+                <span>Docker</span>
+                <span>PostgreSQL</span>
+                <span>PyTorch</span>
+              </div>
+            </div>
           </div>
+
+          <div class="timeline">
+            <article class="timeline-item">
+              <p id="timeline-period-1" class="timeline-period">2026 - 현재</p>
+              <h3 id="timeline-title-1">SSAFY 15기</h3>
+              <p id="timeline-place-1" class="timeline-place">대한민국</p>
+              <p id="timeline-body-1" class="timeline-body">
+                CS, 알고리즘, AI 기초를 더 깊게 다지며 백엔드 개발자로서의 기술 기반을
+                강화하고 있습니다.
+              </p>
+            </article>
+
+            <article class="timeline-item">
+              <p id="timeline-period-2" class="timeline-period">2024 - 2025</p>
+              <h3 id="timeline-title-2">국제학생처 근로</h3>
+              <p id="timeline-place-2" class="timeline-place">대학 행정</p>
+              <p id="timeline-body-2" class="timeline-body">
+                정확한 커뮤니케이션과 실무 조율, 책임감 있는 업무 수행 태도를 익혔습니다.
+              </p>
+            </article>
+
+            <article class="timeline-item">
+              <p id="timeline-period-3" class="timeline-period">2024 - 2025</p>
+              <h3 id="timeline-title-3">교육 봉사 활동</h3>
+              <p id="timeline-place-3" class="timeline-place">봉사 교육</p>
+              <p id="timeline-body-3" class="timeline-body">
+                복잡한 내용을 쉽게 설명하는 방법을 익혔고, 이는 개발 과정의 협업과
+                문서화 역량에도 이어지고 있습니다.
+              </p>
+            </article>
+
+            <article class="timeline-item">
+              <p id="timeline-period-4" class="timeline-period">2023 - 2025</p>
+              <h3 id="timeline-title-4">동아리 및 미디어팀 활동</h3>
+              <p id="timeline-place-4" class="timeline-place">교내 조직</p>
+              <p id="timeline-body-4" class="timeline-body">
+                일정과 산출물 품질, 마무리 책임까지 맡으며 결과를 끝까지 만들어내는
+                오너십을 키웠습니다.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="section">
+        <div class="content-block contact-block">
+          <div class="section-head">
+            <h2 id="contact-heading">연락하기</h2>
+          </div>
+          <p id="contact-copy" class="contact-copy">
+            백엔드 개발, 협업, 그리고 더 탄탄한 구조와 안정적인 실행이 필요한 프로젝트에
+            대해 언제든 편하게 이야기 나누고 싶습니다.
+          </p>
+          <a id="contact-button" class="contact-button" href="mailto:triplenieun@gmail.com">
+            이메일 보내기
+          </a>
         </div>
       </section>
     </main>
+
     <script>
-      const projectData = {
-        community: {
-          status: "TEAM PROJECT",
-          badge: { label: "Main Project", className: "live" },
-          title: "대학 커뮤니티 웹서비스 개발",
-          period: "2025.09.01 - 2025.12.19",
-          summary:
-            "외국인 유학생도 함께 사용할 수 있도록 번역 기능과 책임 기반 구조를 도입한 대학 커뮤니티 서비스입니다.",
-          problem:
-            "익명성을 악용한 혐오 표현 문제와, 한국어 중심 커뮤니티에서 외국인 유학생이 참여하기 어려운 문제를 발견했습니다.",
-          solution:
-            "학과와 국적 등 일부 정보를 공개하는 구조로 책임감을 높였고, AI 번역 기능으로 언어 장벽을 낮췄습니다.",
-          role:
-            "팀장으로서 일정과 역할을 조율했고, 레이어드 아키텍처 예시 템플릿과 Swagger 기반 API 명세를 정리해 협업 기반을 만들었습니다.",
-          features: [
-            "게시글 / 댓글 기반 커뮤니티 기능",
-            "AI 기반 번역 기능",
-            "개인 및 다수 메시지 기능",
-            "주변 식당 리뷰 기능",
-          ],
-          outcome:
-            "기본 커뮤니티 기능에 번역, 메시지, 리뷰 기능까지 포함한 서비스를 개발 및 배포했고, 프로젝트 초반에 구조와 API 기준을 정리하며 협업 흐름을 안정화했습니다.",
-          tech: ["Spring Boot", "PostgreSQL", "Swagger", "Docker", "GitHub Actions"],
+      const content = {
+        ko: {
+          nav: { home: "Home", projects: "Projects", experience: "Experience", contact: "Contact" },
+          hero: {
+            kicker: "백엔드 개발자 / 빌더",
+            summary:
+              "백엔드 개발자이자 문제 해결을 좋아하는 사람입니다. 명확한 구조를 설계하고, 신뢰할 수 있는 결과물을 만들며, 기획과 구현을 연결해 팀이 더 자신 있게 움직일 수 있도록 돕습니다.",
+            email: "이메일",
+          },
+          projects: {
+            heading: "프로젝트",
+            back: "< 뒤로",
+            role: "역할",
+            outcome: "결과",
+            items: {
+              community: {
+                listTitle: "외국인 유학생 커뮤니티 플랫폼",
+                listSummary:
+                  "번역 지원과 책임 기반 참여 구조를 통해 외국인 유학생의 진입 장벽을 낮추는 커뮤니티 서비스를 구축했습니다.",
+                title: "외국인 유학생 커뮤니티 플랫폼",
+                status: "메인 프로젝트",
+                summary:
+                  "번역 지원과 책임 기반 참여 구조를 통해 외국인 유학생의 진입 장벽을 낮추는 커뮤니티 서비스입니다.",
+                role:
+                  "프로젝트 방향을 정의하고 역할을 조율했으며, Swagger 기반 API 문서와 공통 개발 기반을 정리해 팀 협업을 도왔습니다.",
+                outcome:
+                  "커뮤니티 핵심 기능과 번역, 메시징, 리뷰 기능까지 구현 및 배포하면서 초기 구조 설계가 개발 속도에 미치는 영향을 배웠습니다.",
+                tags: ["Spring Boot", "PostgreSQL", "Swagger", "Docker", "GitHub Actions"],
+              },
+              lms: {
+                listTitle: "AI 기반 LMS",
+                listSummary:
+                  "업로드한 강의 자료를 요약과 퀴즈 학습 흐름으로 연결하는 LMS 경험을 설계했습니다.",
+                title: "AI 기반 LMS",
+                status: "프로젝트",
+                summary:
+                  "업로드한 강의 자료를 요약과 퀴즈 기반 학습 흐름으로 연결해 학습 부담을 줄이도록 설계한 LMS 프로젝트입니다.",
+                role:
+                  "파일 업로드와 자료 관리 기능을 중심으로 맡았고, AWS S3와 MinIO를 활용해 안정적인 저장 구조를 구성했습니다.",
+                outcome:
+                  "AI 보조 학습 흐름에서 백엔드 구조와 스토리지 설계가 사용자 경험에 어떻게 연결되는지 깊이 이해하게 되었습니다.",
+                tags: ["Spring", "AWS S3", "MinIO", "Layered Architecture"],
+              },
+              drawing: {
+                listTitle: "AI 그림 인식 서비스",
+                listSummary:
+                  "사용자의 스케치를 실시간으로 인식하고 모델 실험을 제품 형태로 연결한 end-to-end AI 서비스를 구현했습니다.",
+                title: "AI 그림 인식 서비스",
+                status: "프로젝트",
+                summary:
+                  "사용자가 그린 그림을 실시간으로 분류하고, 모델 실험을 실제 서비스 형태로 연결한 AI 프로젝트입니다.",
+                role:
+                  "프로젝트 리드로서 파이프라인과 모델 개선 흐름을 정리했고, 프론트엔드와 백엔드를 직접 구현해 결과물까지 연결했습니다.",
+                outcome:
+                  "전처리, 모델 튜닝, 응답 속도, 배포까지 모두 실제 AI 제품의 품질을 결정한다는 점을 직접 경험했습니다.",
+                tags: ["Flask", "PyTorch", "GitHub", "GCP"],
+              },
+            },
+          },
+          experience: {
+            heading: "경험",
+            introStrong: "3년+",
+            intro:
+              "동안 프로젝트, 실무, 교육 활동을 통해 협업 감각과 책임감, 실전 개발 경험을 쌓아왔습니다.",
+            primaryStack: "주요 스택",
+            toolsStack: "도구 및 확장 경험",
+            timeline: [
+              {
+                period: "2026 - 현재",
+                title: "SSAFY 15기",
+                place: "대한민국",
+                body: "CS, 알고리즘, AI 기초를 더 깊게 다지며 백엔드 개발자로서의 기술 기반을 강화하고 있습니다.",
+              },
+              {
+                period: "2024 - 2025",
+                title: "국제학생처 근로",
+                place: "대학 행정",
+                body: "정확한 커뮤니케이션과 실무 조율, 책임감 있는 업무 수행 태도를 익혔습니다.",
+              },
+              {
+                period: "2024 - 2025",
+                title: "교육 봉사 활동",
+                place: "봉사 교육",
+                body: "복잡한 내용을 쉽게 설명하는 방법을 익혔고, 이는 개발 과정의 협업과 문서화 역량에도 이어지고 있습니다.",
+              },
+              {
+                period: "2023 - 2025",
+                title: "동아리 및 미디어팀 활동",
+                place: "교내 조직",
+                body: "일정과 산출물 품질, 마무리 책임까지 맡으며 결과를 끝까지 만들어내는 오너십을 키웠습니다.",
+              },
+            ],
+          },
+          contact: {
+            heading: "연락하기",
+            copy:
+              "백엔드 개발, 협업, 그리고 더 탄탄한 구조와 안정적인 실행이 필요한 프로젝트에 대해 언제든 편하게 이야기 나누고 싶습니다.",
+            button: "이메일 보내기",
+          },
         },
-        lms: {
-          status: "TEAM PROJECT",
-          badge: { label: "In Progress", className: "progress" },
-          title: "AI 기반 LMS 개발",
-          period: "2025.03.03 - 2025.06.20",
-          summary:
-            "강의자료 업로드만으로 요약과 퀴즈 생성을 자동화해 학습 부담을 줄이는 AI 기반 LMS 프로젝트입니다.",
-          problem:
-            "채팅 UI 기반 AI 학습은 결과 관리가 어렵고, 사용자 프롬프팅 능력에 따라 품질 차이가 크다는 문제를 해결하고자 했습니다.",
-          solution:
-            "강의자료 업로드 후 자동 번역, 요약, 퀴즈 생성을 제공하고, 미리 설계한 프롬프트로 결과 품질을 유도했습니다.",
-          role:
-            "강의자료 업로드 및 관리 기능을 중심으로 개발했으며, AWS S3와 MinIO를 활용한 파일 관리 흐름을 구현했습니다.",
-          features: [
-            "강의자료 업로드 및 관리",
-            "자동 번역 및 요약",
-            "퀴즈 자동 생성",
-            "프롬프트 기반 품질 유도",
-          ],
-          outcome:
-            "전공 학습에 필요한 자료 정리와 문제 생성 과정을 줄여, 사용자가 보다 쉽게 AI 기반 학습 기능을 활용할 수 있는 방향을 제시했습니다.",
-          tech: ["Spring", "AWS S3", "MinIO", "Layered Architecture"],
-        },
-        drawing: {
-          status: "TEAM PROJECT",
-          badge: { label: "AI Project", className: "" },
-          title: "낙서 인식 웹사이트 개발",
-          period: "2024.09.01 - 2024.10.31",
-          summary:
-            "사용자가 그린 낙서를 인식해 무엇을 그렸는지 분류하는 AI 기반 웹서비스입니다.",
-          problem:
-            "학습한 모델을 실제 서비스에서 어떻게 활용할지 고민하던 중 Quick, Draw! 데이터셋을 발견했고, 서비스 목적에 맞게 전처리하면서 추론 속도와 정확도를 함께 고려해야 했습니다.",
-          solution:
-            "실시간에 가까운 응답을 위해 기존 선형 데이터를 64 x 64 벡터로 변환하는 전처리 파이프라인을 구성하고, CNN 기반 구조와 ResNet101 + SENet 실험을 통해 성능을 개선했습니다.",
-          role:
-            "팀장으로서 일정과 역할을 조율했고, 데이터 전처리 파이프라인 구축과 모델 학습을 맡았습니다. 또한 프론트엔드와 백엔드를 모두 직접 구현하고 배포까지 진행했습니다.",
-          features: [
-            "사용자가 그린 낙서를 입력받아 실시간에 가깝게 인식 결과를 반환하는 웹서비스",
-            "Quick, Draw! 데이터셋을 서비스 목적에 맞게 전처리한 추론 파이프라인",
-            "CNN 구조와 ResNet101 + SENet 조합을 비교·실험한 모델 개선 과정",
-            "프론트엔드, 백엔드, 배포까지 직접 수행한 end-to-end 개발 경험",
-          ],
-          outcome:
-            "데이터 전처리부터 모델 개선, 웹 구현, 배포까지 전체 흐름을 직접 경험했고, 정확도뿐 아니라 사용자가 체감하는 응답 속도와 결과의 납득 가능성까지 함께 고려하는 관점을 익혔습니다.",
-          tech: ["Flask", "PyTorch", "Git", "GitHub", "GCP"],
+        en: {
+          nav: { home: "Home", projects: "Projects", experience: "Experience", contact: "Contact" },
+          hero: {
+            kicker: "Backend developer / builder",
+            summary:
+              "Backend developer & problem solver. I design clear structures, build reliable products, and connect planning with implementation so teams can move with more confidence.",
+            email: "Email",
+          },
+          projects: {
+            heading: "Projects",
+            back: "< Back",
+            role: "Role",
+            outcome: "Outcome",
+            items: {
+              community: {
+                listTitle: "Community Platform for International Students",
+                listSummary:
+                  "Built a student community service with translation support, identity-based participation, and a more reliable interaction structure.",
+                title: "Community Platform for International Students",
+                status: "Main Project",
+                summary:
+                  "A community service designed to reduce barriers for international students through translation support and a more accountable, identity-based structure.",
+                role:
+                  "Helped define the project direction, aligned responsibilities, documented API structure with Swagger, and supported the team with a shared development base.",
+                outcome:
+                  "Built and deployed core community features along with translation, messaging, and review capabilities while learning how early structure affects delivery speed.",
+                tags: ["Spring Boot", "PostgreSQL", "Swagger", "Docker", "GitHub Actions"],
+              },
+              lms: {
+                listTitle: "AI-Based Learning Management System",
+                listSummary:
+                  "Designed an LMS experience that turns uploaded lecture material into summarized content and quiz-based learning flow.",
+                title: "AI-Based Learning Management System",
+                status: "Project",
+                summary:
+                  "An LMS concept that reduces study friction by turning uploaded lecture material into summarized content and quiz-ready learning assets.",
+                role:
+                  "Focused on file upload and content management, using AWS S3 and MinIO to support stable storage and learning material flow.",
+                outcome:
+                  "Strengthened my understanding of how backend structure and storage design can support product usability in AI-assisted workflows.",
+                tags: ["Spring", "AWS S3", "MinIO", "Layered Architecture"],
+              },
+              drawing: {
+                listTitle: "AI Drawing Recognition Service",
+                listSummary:
+                  "Delivered an end-to-end AI service that recognizes user-drawn sketches in real time and turns model work into product form.",
+                title: "AI Drawing Recognition Service",
+                status: "Project",
+                summary:
+                  "An AI project that classifies user-drawn sketches in real time and turns a model experiment into an end-to-end service experience.",
+                role:
+                  "Worked as a project lead, organized the pipeline, improved the model workflow, and directly implemented both frontend and backend for delivery.",
+                outcome:
+                  "Learned how preprocessing, model tuning, response speed, and deployment all contribute to the real quality of an AI product.",
+                tags: ["Flask", "PyTorch", "GitHub", "GCP"],
+              },
+            },
+          },
+          experience: {
+            heading: "Experience",
+            introStrong: "3+ years",
+            intro:
+              "building teamwork, responsibility, and practical development experience through projects, operations, and education activities.",
+            primaryStack: "Primary Stack",
+            toolsStack: "Tools & Expansion",
+            timeline: [
+              {
+                period: "2026 - Present",
+                title: "SSAFY 15th",
+                place: "Korea",
+                body: "Strengthening fundamentals in CS, algorithms, and AI while building a stronger technical base for backend development.",
+              },
+              {
+                period: "2024 - 2025",
+                title: "International Student Office Work Experience",
+                place: "University Administration",
+                body: "Built discipline around accurate communication, coordination, and responsibility in day-to-day operational work.",
+              },
+              {
+                period: "2024 - 2025",
+                title: "Education Volunteer Activity",
+                place: "Volunteer Teaching",
+                body: "Learned how to explain complex ideas clearly, which continues to improve collaboration and documentation in development work.",
+              },
+              {
+                period: "2023 - 2025",
+                title: "Club Activity and Media Team Work",
+                place: "Campus Organization",
+                body: "Developed stronger ownership by being responsible for schedules, visible output quality, and finishing work to the end.",
+              },
+            ],
+          },
+          contact: {
+            heading: "Get in Touch",
+            copy:
+              "I'm open to conversations about backend development, collaboration, and projects that need stronger structure and reliable execution.",
+            button: "Email Me",
+          },
         },
       };
 
-      const drawer = document.getElementById("project-drawer");
-      const overlay = document.querySelector(".drawer-overlay");
-      const titleEl = document.getElementById("drawer-title");
-      const statusEl = document.getElementById("drawer-status");
-      const badgeEl = document.getElementById("drawer-badge");
-      const periodEl = document.getElementById("drawer-period");
-      const summaryEl = document.getElementById("drawer-summary");
-      const problemEl = document.getElementById("drawer-problem");
-      const solutionEl = document.getElementById("drawer-solution");
-      const roleEl = document.getElementById("drawer-role");
-      const featuresEl = document.getElementById("drawer-features");
-      const outcomeEl = document.getElementById("drawer-outcome");
-      const techEl = document.getElementById("drawer-tech");
-      const triggers = document.querySelectorAll(".project-trigger");
-      const closers = document.querySelectorAll("[data-drawer-close]");
+      let currentLanguage = localStorage.getItem("portfolio-language") || "ko";
+      let currentProjectKey = "community";
 
-      function openDrawer(key) {
-        const project = projectData[key];
+      const navLinks = document.querySelectorAll(".nav-link");
+      const navTextMap = {
+        home: document.querySelector('[data-nav="home"]'),
+        projects: document.querySelector('[data-nav="projects"]'),
+        experience: document.querySelector('[data-nav="experience"]'),
+        contact: document.querySelector('[data-nav="contact"]'),
+      };
+      const langButtons = document.querySelectorAll(".lang-button");
+      const observedSections = document.querySelectorAll("main section[id]");
+      const projectRows = document.querySelectorAll(".project-row");
+      const projectListView = document.getElementById("project-list-view");
+      const projectDetailView = document.getElementById("project-detail-view");
+      const projectBackButton = document.getElementById("project-back-button");
+      const heroKicker = document.getElementById("hero-kicker");
+      const heroSummary = document.getElementById("hero-summary");
+      const heroEmailLink = document.getElementById("hero-email-link");
+      const projectsHeading = document.getElementById("projects-heading");
+      const detailTitle = document.getElementById("detail-title");
+      const detailStatus = document.getElementById("detail-status");
+      const detailSummary = document.getElementById("detail-summary");
+      const detailRoleLabel = document.getElementById("detail-role-label");
+      const detailRole = document.getElementById("detail-role");
+      const detailOutcomeLabel = document.getElementById("detail-outcome-label");
+      const detailOutcome = document.getElementById("detail-outcome");
+      const detailTags = document.getElementById("detail-tags");
+      const projectSection = document.getElementById("projects");
+      const experienceHeading = document.getElementById("experience-heading");
+      const experienceIntroStrong = document.getElementById("experience-intro-strong");
+      const experienceIntroText = document.getElementById("experience-intro-text");
+      const primaryStackLabel = document.getElementById("primary-stack-label");
+      const toolsStackLabel = document.getElementById("tools-stack-label");
+      const contactHeading = document.getElementById("contact-heading");
+      const contactCopy = document.getElementById("contact-copy");
+      const contactButton = document.getElementById("contact-button");
+
+      function setActiveLink(id) {
+        navLinks.forEach((link) => {
+          const isActive = link.getAttribute("href") === "#" + id;
+          link.classList.toggle("is-active", isActive);
+          if (isActive) {
+            link.setAttribute("aria-current", "page");
+          } else {
+            link.removeAttribute("aria-current");
+          }
+        });
+      }
+
+      function renderStaticContent() {
+        const dictionary = content[currentLanguage];
+
+        Object.entries(navTextMap).forEach(([key, element]) => {
+          element.textContent = dictionary.nav[key];
+        });
+
+        heroKicker.textContent = dictionary.hero.kicker;
+        heroSummary.textContent = dictionary.hero.summary;
+        heroEmailLink.textContent = dictionary.hero.email;
+
+        projectsHeading.textContent = dictionary.projects.heading;
+        projectBackButton.textContent = dictionary.projects.back;
+        detailRoleLabel.textContent = dictionary.projects.role;
+        detailOutcomeLabel.textContent = dictionary.projects.outcome;
+
+        document.querySelectorAll("[data-project-title]").forEach((element) => {
+          const key = element.dataset.projectTitle;
+          element.textContent = dictionary.projects.items[key].listTitle;
+        });
+
+        document.querySelectorAll("[data-project-summary]").forEach((element) => {
+          const key = element.dataset.projectSummary;
+          element.textContent = dictionary.projects.items[key].listSummary;
+        });
+
+        experienceHeading.textContent = dictionary.experience.heading;
+        experienceIntroStrong.textContent = dictionary.experience.introStrong;
+        experienceIntroText.textContent = dictionary.experience.intro;
+        primaryStackLabel.textContent = dictionary.experience.primaryStack;
+        toolsStackLabel.textContent = dictionary.experience.toolsStack;
+
+        dictionary.experience.timeline.forEach((item, index) => {
+          document.getElementById(`timeline-period-${index + 1}`).textContent = item.period;
+          document.getElementById(`timeline-title-${index + 1}`).textContent = item.title;
+          document.getElementById(`timeline-place-${index + 1}`).textContent = item.place;
+          document.getElementById(`timeline-body-${index + 1}`).textContent = item.body;
+        });
+
+        contactHeading.textContent = dictionary.contact.heading;
+        contactCopy.textContent = dictionary.contact.copy;
+        contactButton.textContent = dictionary.contact.button;
+      }
+
+      function renderProject(key) {
+        const project = content[currentLanguage].projects.items[key];
         if (!project) return;
 
-        statusEl.textContent = project.status;
-        titleEl.textContent = project.title;
-        badgeEl.textContent = project.badge.label;
-        badgeEl.className = "badge";
-        if (project.badge.className) badgeEl.classList.add(project.badge.className);
-        periodEl.textContent = project.period;
-        summaryEl.textContent = project.summary;
-        problemEl.textContent = project.problem;
-        solutionEl.textContent = project.solution;
-        roleEl.textContent = project.role;
-        outcomeEl.textContent = project.outcome;
+        currentProjectKey = key;
+        detailTitle.textContent = project.title;
+        detailStatus.textContent = project.status;
+        detailSummary.textContent = project.summary;
+        detailRole.textContent = project.role;
+        detailOutcome.textContent = project.outcome;
 
-        featuresEl.innerHTML = "";
-        project.features.forEach((feature) => {
-          const li = document.createElement("li");
-          li.textContent = feature;
-          featuresEl.appendChild(li);
-        });
-
-        techEl.innerHTML = "";
-        project.tech.forEach((tech) => {
+        detailTags.innerHTML = "";
+        project.tags.forEach((tag) => {
           const span = document.createElement("span");
-          span.textContent = tech;
-          techEl.appendChild(span);
+          span.textContent = tag;
+          detailTags.appendChild(span);
         });
 
-        drawer.classList.add("open");
-        overlay.hidden = false;
-        overlay.classList.add("open");
-        drawer.setAttribute("aria-hidden", "false");
-        document.body.classList.add("drawer-open");
+        projectRows.forEach((row) => {
+          row.classList.toggle("is-selected", row.dataset.project === key);
+        });
       }
 
-      function closeDrawer() {
-        drawer.classList.remove("open");
-        overlay.classList.remove("open");
-        drawer.setAttribute("aria-hidden", "true");
-        document.body.classList.remove("drawer-open");
-        setTimeout(() => {
-          if (!drawer.classList.contains("open")) overlay.hidden = true;
-        }, 250);
+      function setLanguage(language) {
+        currentLanguage = language;
+        localStorage.setItem("portfolio-language", language);
+        document.documentElement.lang = language;
+
+        langButtons.forEach((button) => {
+          button.classList.toggle("is-active", button.dataset.lang === language);
+        });
+
+        renderStaticContent();
+        renderProject(currentProjectKey);
       }
 
-      triggers.forEach((trigger) => {
-        trigger.addEventListener("click", () => openDrawer(trigger.dataset.project));
-      });
+      function showProjectList(pushHistory = true) {
+        document.body.classList.remove("project-detail-open");
+        projectListView.hidden = false;
+        projectDetailView.hidden = true;
+        projectListView.classList.add("is-visible");
+        projectDetailView.classList.remove("is-visible");
 
-      closers.forEach((closer) => {
-        closer.addEventListener("click", closeDrawer);
-      });
-
-      window.addEventListener("keydown", (event) => {
-        if (event.key === "Escape" && drawer.classList.contains("open")) {
-          closeDrawer();
+        if (pushHistory) {
+          history.pushState({ view: "projects" }, "", "#projects");
         }
+      }
+
+      function showProjectDetail(key, pushHistory = true) {
+        renderProject(key);
+        document.body.classList.add("project-detail-open");
+        projectListView.hidden = true;
+        projectDetailView.hidden = false;
+        projectListView.classList.remove("is-visible");
+        projectDetailView.classList.add("is-visible");
+
+        if (pushHistory) {
+          history.pushState({ view: "project-detail", project: key }, "", "#projects");
+        }
+      }
+
+      navLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+          const targetId = link.getAttribute("href")?.replace("#", "");
+          if (targetId) setActiveLink(targetId);
+        });
       });
+
+      langButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          setLanguage(button.dataset.lang);
+        });
+      });
+
+      projectRows.forEach((row) => {
+        row.addEventListener("click", () => {
+          showProjectDetail(row.dataset.project);
+        });
+      });
+
+      projectBackButton.addEventListener("click", () => {
+        if (history.state?.view === "project-detail") {
+          history.back();
+          return;
+        }
+
+        showProjectList(false);
+      });
+
+      window.addEventListener("popstate", (event) => {
+        if (event.state?.view === "project-detail" && event.state.project) {
+          showProjectDetail(event.state.project, false);
+          return;
+        }
+
+        showProjectList(false);
+      });
+
+      const sectionObserver = new IntersectionObserver(
+        (entries) => {
+          const visibleEntries = entries
+            .filter((entry) => entry.isIntersecting)
+            .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+
+          if (visibleEntries[0]) {
+            setActiveLink(visibleEntries[0].target.id);
+          }
+        },
+        {
+          threshold: [0.35, 0.55, 0.75],
+          rootMargin: "-15% 0px -40% 0px",
+        }
+      );
+
+      observedSections.forEach((section) => sectionObserver.observe(section));
+      setLanguage(currentLanguage);
+      history.replaceState({ view: "projects" }, "", window.location.hash || "#home");
     </script>
   </body>
 </html>
