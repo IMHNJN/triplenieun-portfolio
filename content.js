@@ -1,6 +1,6 @@
 window.portfolioContent = {
   ko: {
-    nav: { home: "Home", projects: "Projects", experience: "Experience", contact: "Contact" },
+    nav: { home: "Home", projects: "Projects", experience: "Experiences", contact: "Contact" },
     hero: {
       kicker: "백엔드 개발자 / 빌더",
       summary:
@@ -101,7 +101,7 @@ window.portfolioContent = {
     },
   },
   en: {
-    nav: { home: "Home", projects: "Projects", experience: "Experience", contact: "Contact" },
+    nav: { home: "Home", projects: "Projects", experience: "Experiences", contact: "Contact" },
     hero: {
       kicker: "Backend developer / builder",
       summary:

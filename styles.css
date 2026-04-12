@@ -144,8 +144,36 @@ h3 {
 }
 
 .nav-icon {
-  font-size: 1.2rem;
-  line-height: 1;
+  width: 22px;
+  height: 22px;
+  display: inline-block;
+  background-color: currentColor;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  -webkit-mask-size: contain;
+}
+
+.nav-icon-home {
+  mask-image: url("./assets/icons/home.svg");
+  -webkit-mask-image: url("./assets/icons/home.svg");
+}
+
+.nav-icon-projects {
+  mask-image: url("./assets/icons/projects.svg");
+  -webkit-mask-image: url("./assets/icons/projects.svg");
+}
+
+.nav-icon-experience {
+  mask-image: url("./assets/icons/experience.svg");
+  -webkit-mask-image: url("./assets/icons/experience.svg");
+}
+
+.nav-icon-contact {
+  mask-image: url("./assets/icons/contact.svg");
+  -webkit-mask-image: url("./assets/icons/contact.svg");
 }
 
 .section {
@@ -354,6 +382,7 @@ h3 {
 
 .experience-block {
   position: relative;
+  margin-bottom: 30px;
 }
 
 .experience-intro {
