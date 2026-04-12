@@ -54,10 +54,9 @@
             움직일 수 있도록 돕습니다.
           </p>
           <div class="inline-links">
-            <a href="https://x.com/" target="_blank" rel="noreferrer">X (Twitter)</a>
             <a href="https://github.com/IMHNJN" target="_blank" rel="noreferrer">GitHub</a>
-            <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer">LinkedIn</a>
-            <a id="hero-email-link" href="mailto:triplenieun@gmail.com">이메일</a>
+            <a href="https://www.linkedin.com/in/triplenieun/" target="_blank" rel="noreferrer">LinkedIn</a>
+            <!-- <a id="hero-email-link" href="mailto:triplenieun@gmail.com">이메일</a> -->
           </div>
         </div>
       </section>
@@ -69,40 +68,7 @@
               <h2 id="projects-heading">프로젝트</h2>
             </div>
 
-            <div class="project-list">
-              <button type="button" class="project-row" data-project="community">
-                <span class="project-copy">
-                  <strong data-project-title="community">외국인 유학생 커뮤니티 플랫폼</strong>
-                  <span data-project-summary="community">
-                    번역 지원과 책임 기반 참여 구조를 통해 외국인 유학생의 진입 장벽을
-                    낮추는 커뮤니티 서비스를 구축했습니다.
-                  </span>
-                </span>
-                <span class="project-arrow" aria-hidden="true">></span>
-              </button>
-
-              <button type="button" class="project-row" data-project="lms">
-                <span class="project-copy">
-                  <strong data-project-title="lms">AI 기반 LMS</strong>
-                  <span data-project-summary="lms">
-                    업로드한 강의 자료를 요약과 퀴즈 학습 흐름으로 연결하는 LMS 경험을
-                    설계했습니다.
-                  </span>
-                </span>
-                <span class="project-arrow" aria-hidden="true">></span>
-              </button>
-
-              <button type="button" class="project-row" data-project="drawing">
-                <span class="project-copy">
-                  <strong data-project-title="drawing">AI 그림 인식 서비스</strong>
-                  <span data-project-summary="drawing">
-                    사용자의 스케치를 실시간으로 인식하고 모델 실험을 제품 형태로
-                    연결한 end-to-end AI 서비스를 구현했습니다.
-                  </span>
-                </span>
-                <span class="project-arrow" aria-hidden="true">></span>
-              </button>
-            </div>
+            <div id="project-list" class="project-list"></div>
           </div>
 
           <article
@@ -158,69 +124,16 @@
           <div class="stack-groups">
             <div class="stack-group">
               <p id="primary-stack-label" class="stack-label">주요 스택</p>
-              <div class="tag-list">
-                <span>Java</span>
-                <span>Spring Boot</span>
-                <span>REST API</span>
-                <span>Git</span>
-                <span>GitHub</span>
-                <span>Swagger</span>
-              </div>
+              <div id="primary-stack-tags" class="tag-list"></div>
             </div>
 
             <div class="stack-group">
               <p id="tools-stack-label" class="stack-label">도구 및 확장 경험</p>
-              <div class="tag-list">
-                <span>React</span>
-                <span>JavaScript</span>
-                <span>AWS S3</span>
-                <span>Docker</span>
-                <span>PostgreSQL</span>
-                <span>PyTorch</span>
-              </div>
+              <div id="tools-stack-tags" class="tag-list"></div>
             </div>
           </div>
 
-          <div class="timeline">
-            <article class="timeline-item">
-              <p id="timeline-period-1" class="timeline-period">2026 - 현재</p>
-              <h3 id="timeline-title-1">SSAFY 15기</h3>
-              <p id="timeline-place-1" class="timeline-place">대한민국</p>
-              <p id="timeline-body-1" class="timeline-body">
-                CS, 알고리즘, AI 기초를 더 깊게 다지며 백엔드 개발자로서의 기술 기반을
-                강화하고 있습니다.
-              </p>
-            </article>
-
-            <article class="timeline-item">
-              <p id="timeline-period-2" class="timeline-period">2024 - 2025</p>
-              <h3 id="timeline-title-2">국제학생처 근로</h3>
-              <p id="timeline-place-2" class="timeline-place">대학 행정</p>
-              <p id="timeline-body-2" class="timeline-body">
-                정확한 커뮤니케이션과 실무 조율, 책임감 있는 업무 수행 태도를 익혔습니다.
-              </p>
-            </article>
-
-            <article class="timeline-item">
-              <p id="timeline-period-3" class="timeline-period">2024 - 2025</p>
-              <h3 id="timeline-title-3">교육 봉사 활동</h3>
-              <p id="timeline-place-3" class="timeline-place">봉사 교육</p>
-              <p id="timeline-body-3" class="timeline-body">
-                복잡한 내용을 쉽게 설명하는 방법을 익혔고, 이는 개발 과정의 협업과
-                문서화 역량에도 이어지고 있습니다.
-              </p>
-            </article>
-
-            <article class="timeline-item">
-              <p id="timeline-period-4" class="timeline-period">2023 - 2025</p>
-              <h3 id="timeline-title-4">동아리 및 미디어팀 활동</h3>
-              <p id="timeline-place-4" class="timeline-place">교내 조직</p>
-              <p id="timeline-body-4" class="timeline-body">
-                일정과 산출물 품질, 마무리 책임까지 맡으며 결과를 끝까지 만들어내는
-                오너십을 키웠습니다.
-              </p>
-            </article>
-          </div>
+          <div id="timeline-list" class="timeline"></div>
         </div>
       </section>
 
@@ -240,210 +153,11 @@
       </section>
     </main>
 
+    <script src="./content.js"></script>
     <script>
-      const content = {
-        ko: {
-          nav: { home: "Home", projects: "Projects", experience: "Experience", contact: "Contact" },
-          hero: {
-            kicker: "백엔드 개발자 / 빌더",
-            summary:
-              "백엔드 개발자이자 문제 해결을 좋아하는 사람입니다. 명확한 구조를 설계하고, 신뢰할 수 있는 결과물을 만들며, 기획과 구현을 연결해 팀이 더 자신 있게 움직일 수 있도록 돕습니다.",
-            email: "이메일",
-          },
-          projects: {
-            heading: "프로젝트",
-            back: "< 뒤로",
-            role: "역할",
-            outcome: "결과",
-            items: {
-              community: {
-                listTitle: "외국인 유학생 커뮤니티 플랫폼",
-                listSummary:
-                  "번역 지원과 책임 기반 참여 구조를 통해 외국인 유학생의 진입 장벽을 낮추는 커뮤니티 서비스를 구축했습니다.",
-                title: "외국인 유학생 커뮤니티 플랫폼",
-                status: "메인 프로젝트",
-                summary:
-                  "번역 지원과 책임 기반 참여 구조를 통해 외국인 유학생의 진입 장벽을 낮추는 커뮤니티 서비스입니다.",
-                role:
-                  "프로젝트 방향을 정의하고 역할을 조율했으며, Swagger 기반 API 문서와 공통 개발 기반을 정리해 팀 협업을 도왔습니다.",
-                outcome:
-                  "커뮤니티 핵심 기능과 번역, 메시징, 리뷰 기능까지 구현 및 배포하면서 초기 구조 설계가 개발 속도에 미치는 영향을 배웠습니다.",
-                tags: ["Spring Boot", "PostgreSQL", "Swagger", "Docker", "GitHub Actions"],
-              },
-              lms: {
-                listTitle: "AI 기반 LMS",
-                listSummary:
-                  "업로드한 강의 자료를 요약과 퀴즈 학습 흐름으로 연결하는 LMS 경험을 설계했습니다.",
-                title: "AI 기반 LMS",
-                status: "프로젝트",
-                summary:
-                  "업로드한 강의 자료를 요약과 퀴즈 기반 학습 흐름으로 연결해 학습 부담을 줄이도록 설계한 LMS 프로젝트입니다.",
-                role:
-                  "파일 업로드와 자료 관리 기능을 중심으로 맡았고, AWS S3와 MinIO를 활용해 안정적인 저장 구조를 구성했습니다.",
-                outcome:
-                  "AI 보조 학습 흐름에서 백엔드 구조와 스토리지 설계가 사용자 경험에 어떻게 연결되는지 깊이 이해하게 되었습니다.",
-                tags: ["Spring", "AWS S3", "MinIO", "Layered Architecture"],
-              },
-              drawing: {
-                listTitle: "AI 그림 인식 서비스",
-                listSummary:
-                  "사용자의 스케치를 실시간으로 인식하고 모델 실험을 제품 형태로 연결한 end-to-end AI 서비스를 구현했습니다.",
-                title: "AI 그림 인식 서비스",
-                status: "프로젝트",
-                summary:
-                  "사용자가 그린 그림을 실시간으로 분류하고, 모델 실험을 실제 서비스 형태로 연결한 AI 프로젝트입니다.",
-                role:
-                  "프로젝트 리드로서 파이프라인과 모델 개선 흐름을 정리했고, 프론트엔드와 백엔드를 직접 구현해 결과물까지 연결했습니다.",
-                outcome:
-                  "전처리, 모델 튜닝, 응답 속도, 배포까지 모두 실제 AI 제품의 품질을 결정한다는 점을 직접 경험했습니다.",
-                tags: ["Flask", "PyTorch", "GitHub", "GCP"],
-              },
-            },
-          },
-          experience: {
-            heading: "경험",
-            introStrong: "3년+",
-            intro:
-              "동안 프로젝트, 실무, 교육 활동을 통해 협업 감각과 책임감, 실전 개발 경험을 쌓아왔습니다.",
-            primaryStack: "주요 스택",
-            toolsStack: "도구 및 확장 경험",
-            timeline: [
-              {
-                period: "2026 - 현재",
-                title: "SSAFY 15기",
-                place: "대한민국",
-                body: "CS, 알고리즘, AI 기초를 더 깊게 다지며 백엔드 개발자로서의 기술 기반을 강화하고 있습니다.",
-              },
-              {
-                period: "2024 - 2025",
-                title: "국제학생처 근로",
-                place: "대학 행정",
-                body: "정확한 커뮤니케이션과 실무 조율, 책임감 있는 업무 수행 태도를 익혔습니다.",
-              },
-              {
-                period: "2024 - 2025",
-                title: "교육 봉사 활동",
-                place: "봉사 교육",
-                body: "복잡한 내용을 쉽게 설명하는 방법을 익혔고, 이는 개발 과정의 협업과 문서화 역량에도 이어지고 있습니다.",
-              },
-              {
-                period: "2023 - 2025",
-                title: "동아리 및 미디어팀 활동",
-                place: "교내 조직",
-                body: "일정과 산출물 품질, 마무리 책임까지 맡으며 결과를 끝까지 만들어내는 오너십을 키웠습니다.",
-              },
-            ],
-          },
-          contact: {
-            heading: "연락하기",
-            copy:
-              "백엔드 개발, 협업, 그리고 더 탄탄한 구조와 안정적인 실행이 필요한 프로젝트에 대해 언제든 편하게 이야기 나누고 싶습니다.",
-            button: "이메일 보내기",
-          },
-        },
-        en: {
-          nav: { home: "Home", projects: "Projects", experience: "Experience", contact: "Contact" },
-          hero: {
-            kicker: "Backend developer / builder",
-            summary:
-              "Backend developer & problem solver. I design clear structures, build reliable products, and connect planning with implementation so teams can move with more confidence.",
-            email: "Email",
-          },
-          projects: {
-            heading: "Projects",
-            back: "< Back",
-            role: "Role",
-            outcome: "Outcome",
-            items: {
-              community: {
-                listTitle: "Community Platform for International Students",
-                listSummary:
-                  "Built a student community service with translation support, identity-based participation, and a more reliable interaction structure.",
-                title: "Community Platform for International Students",
-                status: "Main Project",
-                summary:
-                  "A community service designed to reduce barriers for international students through translation support and a more accountable, identity-based structure.",
-                role:
-                  "Helped define the project direction, aligned responsibilities, documented API structure with Swagger, and supported the team with a shared development base.",
-                outcome:
-                  "Built and deployed core community features along with translation, messaging, and review capabilities while learning how early structure affects delivery speed.",
-                tags: ["Spring Boot", "PostgreSQL", "Swagger", "Docker", "GitHub Actions"],
-              },
-              lms: {
-                listTitle: "AI-Based Learning Management System",
-                listSummary:
-                  "Designed an LMS experience that turns uploaded lecture material into summarized content and quiz-based learning flow.",
-                title: "AI-Based Learning Management System",
-                status: "Project",
-                summary:
-                  "An LMS concept that reduces study friction by turning uploaded lecture material into summarized content and quiz-ready learning assets.",
-                role:
-                  "Focused on file upload and content management, using AWS S3 and MinIO to support stable storage and learning material flow.",
-                outcome:
-                  "Strengthened my understanding of how backend structure and storage design can support product usability in AI-assisted workflows.",
-                tags: ["Spring", "AWS S3", "MinIO", "Layered Architecture"],
-              },
-              drawing: {
-                listTitle: "AI Drawing Recognition Service",
-                listSummary:
-                  "Delivered an end-to-end AI service that recognizes user-drawn sketches in real time and turns model work into product form.",
-                title: "AI Drawing Recognition Service",
-                status: "Project",
-                summary:
-                  "An AI project that classifies user-drawn sketches in real time and turns a model experiment into an end-to-end service experience.",
-                role:
-                  "Worked as a project lead, organized the pipeline, improved the model workflow, and directly implemented both frontend and backend for delivery.",
-                outcome:
-                  "Learned how preprocessing, model tuning, response speed, and deployment all contribute to the real quality of an AI product.",
-                tags: ["Flask", "PyTorch", "GitHub", "GCP"],
-              },
-            },
-          },
-          experience: {
-            heading: "Experience",
-            introStrong: "3+ years",
-            intro:
-              "building teamwork, responsibility, and practical development experience through projects, operations, and education activities.",
-            primaryStack: "Primary Stack",
-            toolsStack: "Tools & Expansion",
-            timeline: [
-              {
-                period: "2026 - Present",
-                title: "SSAFY 15th",
-                place: "Korea",
-                body: "Strengthening fundamentals in CS, algorithms, and AI while building a stronger technical base for backend development.",
-              },
-              {
-                period: "2024 - 2025",
-                title: "International Student Office Work Experience",
-                place: "University Administration",
-                body: "Built discipline around accurate communication, coordination, and responsibility in day-to-day operational work.",
-              },
-              {
-                period: "2024 - 2025",
-                title: "Education Volunteer Activity",
-                place: "Volunteer Teaching",
-                body: "Learned how to explain complex ideas clearly, which continues to improve collaboration and documentation in development work.",
-              },
-              {
-                period: "2023 - 2025",
-                title: "Club Activity and Media Team Work",
-                place: "Campus Organization",
-                body: "Developed stronger ownership by being responsible for schedules, visible output quality, and finishing work to the end.",
-              },
-            ],
-          },
-          contact: {
-            heading: "Get in Touch",
-            copy:
-              "I'm open to conversations about backend development, collaboration, and projects that need stronger structure and reliable execution.",
-            button: "Email Me",
-          },
-        },
-      };
-
+      const content = window.portfolioContent;
       let currentLanguage = localStorage.getItem("portfolio-language") || "ko";
-      let currentProjectKey = "community";
+      let currentProjectKey = Object.keys(content.ko.projects.items)[0];
 
       const navLinks = document.querySelectorAll(".nav-link");
       const navTextMap = {
@@ -454,13 +168,12 @@
       };
       const langButtons = document.querySelectorAll(".lang-button");
       const observedSections = document.querySelectorAll("main section[id]");
-      const projectRows = document.querySelectorAll(".project-row");
+      const projectList = document.getElementById("project-list");
       const projectListView = document.getElementById("project-list-view");
       const projectDetailView = document.getElementById("project-detail-view");
       const projectBackButton = document.getElementById("project-back-button");
       const heroKicker = document.getElementById("hero-kicker");
       const heroSummary = document.getElementById("hero-summary");
-      const heroEmailLink = document.getElementById("hero-email-link");
       const projectsHeading = document.getElementById("projects-heading");
       const detailTitle = document.getElementById("detail-title");
       const detailStatus = document.getElementById("detail-status");
@@ -476,9 +189,87 @@
       const experienceIntroText = document.getElementById("experience-intro-text");
       const primaryStackLabel = document.getElementById("primary-stack-label");
       const toolsStackLabel = document.getElementById("tools-stack-label");
+      const primaryStackTags = document.getElementById("primary-stack-tags");
+      const toolsStackTags = document.getElementById("tools-stack-tags");
+      const timelineList = document.getElementById("timeline-list");
       const contactHeading = document.getElementById("contact-heading");
       const contactCopy = document.getElementById("contact-copy");
       const contactButton = document.getElementById("contact-button");
+
+      function renderTagList(container, tags) {
+        container.innerHTML = "";
+
+        tags.forEach((tag) => {
+          const span = document.createElement("span");
+          span.textContent = tag;
+          container.appendChild(span);
+        });
+      }
+
+      function renderProjectList() {
+        const items = content[currentLanguage].projects.items;
+
+        projectList.innerHTML = "";
+
+        Object.entries(items).forEach(([key, project]) => {
+          const button = document.createElement("button");
+          button.type = "button";
+          button.className = "project-row";
+          button.dataset.project = key;
+
+          const copy = document.createElement("span");
+          copy.className = "project-copy";
+
+          const title = document.createElement("strong");
+          title.textContent = project.listTitle;
+
+          const summary = document.createElement("span");
+          summary.textContent = project.listSummary;
+
+          const arrow = document.createElement("span");
+          arrow.className = "project-arrow";
+          arrow.setAttribute("aria-hidden", "true");
+          arrow.textContent = ">";
+
+          copy.appendChild(title);
+          copy.appendChild(summary);
+          button.appendChild(copy);
+          button.appendChild(arrow);
+          projectList.appendChild(button);
+        });
+      }
+
+      function renderTimeline() {
+        const timeline = content[currentLanguage].experience.timeline;
+
+        timelineList.innerHTML = "";
+
+        timeline.forEach((item) => {
+          const article = document.createElement("article");
+          article.className = "timeline-item";
+
+          const period = document.createElement("p");
+          period.className = "timeline-period";
+          period.textContent = item.period;
+
+          const title = document.createElement("h3");
+          title.textContent = item.title;
+
+          const place = document.createElement("p");
+          place.className = "timeline-place";
+          place.textContent = item.place;
+
+          const body = document.createElement("p");
+          body.className = "timeline-body";
+          body.textContent = item.body;
+
+          article.appendChild(period);
+          article.appendChild(title);
+          article.appendChild(place);
+          article.appendChild(body);
+          timelineList.appendChild(article);
+        });
+      }
 
       function setActiveLink(id) {
         navLinks.forEach((link) => {
@@ -501,35 +292,20 @@
 
         heroKicker.textContent = dictionary.hero.kicker;
         heroSummary.textContent = dictionary.hero.summary;
-        heroEmailLink.textContent = dictionary.hero.email;
-
         projectsHeading.textContent = dictionary.projects.heading;
         projectBackButton.textContent = dictionary.projects.back;
         detailRoleLabel.textContent = dictionary.projects.role;
         detailOutcomeLabel.textContent = dictionary.projects.outcome;
-
-        document.querySelectorAll("[data-project-title]").forEach((element) => {
-          const key = element.dataset.projectTitle;
-          element.textContent = dictionary.projects.items[key].listTitle;
-        });
-
-        document.querySelectorAll("[data-project-summary]").forEach((element) => {
-          const key = element.dataset.projectSummary;
-          element.textContent = dictionary.projects.items[key].listSummary;
-        });
+        renderProjectList();
 
         experienceHeading.textContent = dictionary.experience.heading;
         experienceIntroStrong.textContent = dictionary.experience.introStrong;
         experienceIntroText.textContent = dictionary.experience.intro;
         primaryStackLabel.textContent = dictionary.experience.primaryStack;
         toolsStackLabel.textContent = dictionary.experience.toolsStack;
-
-        dictionary.experience.timeline.forEach((item, index) => {
-          document.getElementById(`timeline-period-${index + 1}`).textContent = item.period;
-          document.getElementById(`timeline-title-${index + 1}`).textContent = item.title;
-          document.getElementById(`timeline-place-${index + 1}`).textContent = item.place;
-          document.getElementById(`timeline-body-${index + 1}`).textContent = item.body;
-        });
+        renderTagList(primaryStackTags, dictionary.experience.primaryTags);
+        renderTagList(toolsStackTags, dictionary.experience.toolsTags);
+        renderTimeline();
 
         contactHeading.textContent = dictionary.contact.heading;
         contactCopy.textContent = dictionary.contact.copy;
@@ -547,14 +323,9 @@
         detailRole.textContent = project.role;
         detailOutcome.textContent = project.outcome;
 
-        detailTags.innerHTML = "";
-        project.tags.forEach((tag) => {
-          const span = document.createElement("span");
-          span.textContent = tag;
-          detailTags.appendChild(span);
-        });
+        renderTagList(detailTags, project.tags);
 
-        projectRows.forEach((row) => {
+        document.querySelectorAll(".project-row").forEach((row) => {
           row.classList.toggle("is-selected", row.dataset.project === key);
         });
       }
@@ -610,10 +381,11 @@
         });
       });
 
-      projectRows.forEach((row) => {
-        row.addEventListener("click", () => {
-          showProjectDetail(row.dataset.project);
-        });
+      projectList.addEventListener("click", (event) => {
+        const row = event.target.closest(".project-row");
+        if (!row) return;
+
+        showProjectDetail(row.dataset.project);
       });
 
       projectBackButton.addEventListener("click", () => {
