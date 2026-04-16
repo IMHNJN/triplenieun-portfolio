@@ -1,12 +1,9 @@
 :root {
-  --bg: #f6efe3;
-  --panel: #f2e7d4;
   --text-main: #31221c;
   --text-muted: #74665b;
   --accent: #d08a3f;
   --accent-soft: #ead8bc;
   --line: rgba(49, 34, 28, 0.08);
-  --line-strong: rgba(208, 138, 63, 0.42);
   --button: #37261e;
   --button-text: #fff7ec;
   --content-width: 720px;

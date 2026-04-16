@@ -5,7 +5,6 @@ window.portfolioContent = {
       kicker: "백엔드 개발자 / 빌더",
       summary:
         "백엔드 개발자이자 문제 해결을 좋아하는 사람입니다. 명확한 구조를 설계하고, 신뢰할 수 있는 결과물을 만들며, 기획과 구현을 연결해 팀이 더 자신 있게 움직일 수 있도록 돕습니다.",
-      email: "이메일",
     },
     projects: {
       heading: "Projects",
@@ -106,7 +105,6 @@ window.portfolioContent = {
       kicker: "Backend developer / builder",
       summary:
         "Backend developer & problem solver. I design clear structures, build reliable products, and connect planning with implementation so teams can move with more confidence.",
-      email: "Email",
     },
     projects: {
       heading: "Projects",
