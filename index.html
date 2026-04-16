@@ -17,12 +17,12 @@
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
-    <aside class="side-nav" aria-label="Section navigation">
-      <div class="language-toggle" role="group" aria-label="Language selector">
-        <button type="button" class="lang-button is-active" data-lang="ko">KR</button>
-        <button type="button" class="lang-button" data-lang="en">EN</button>
-      </div>
+    <div class="language-toggle" role="group" aria-label="Language selector">
+      <button type="button" class="lang-button is-active" data-lang="ko">KR</button>
+      <button type="button" class="lang-button" data-lang="en">EN</button>
+    </div>
 
+    <aside class="side-nav" aria-label="Section navigation">
       <nav class="side-nav-links">
         <a href="#home" class="nav-link is-active">
           <span class="nav-icon nav-icon-home" aria-hidden="true"></span>
@@ -61,7 +61,7 @@
         </div>
       </section>
 
-      <section id="projects" class="section">
+      <section id="projects" class="section section-panel">
         <div class="content-block">
           <div id="project-list-view" class="project-view is-visible">
             <div class="section-head">
@@ -108,7 +108,7 @@
         </div>
       </section>
 
-      <section id="experiences" class="section">
+      <section id="experiences" class="section section-panel">
         <div class="content-block experience-block">
           <div class="section-head">
             <h2 id="experience-heading">경험</h2>
@@ -159,6 +159,7 @@
       let currentLanguage = localStorage.getItem("portfolio-language") || "ko";
       let currentProjectKey = Object.keys(content.ko.projects.items)[0];
 
+      const pageShell = document.querySelector(".page-shell");
       const navLinks = document.querySelectorAll(".nav-link");
       const navTextMap = {
         home: document.querySelector('[data-nav="home"]'),
@@ -195,6 +196,113 @@
       const contactHeading = document.getElementById("contact-heading");
       const contactCopy = document.getElementById("contact-copy");
       const contactButton = document.getElementById("contact-button");
+      const desktopFullPageMedia = window.matchMedia("(min-width: 761px)");
+      const sectionSequence = Array.from(observedSections);
+      const validSectionIds = Array.from(observedSections, (section) => section.id);
+      const sectionAnimationDuration = 720;
+      let activeSectionId = validSectionIds[0] || "home";
+      let isSectionAnimating = false;
+      let sectionAnimationTimerId = null;
+
+      function getSectionById(id) {
+        return id ? document.getElementById(id) : null;
+      }
+
+      function getValidSectionId(id) {
+        return validSectionIds.includes(id) ? id : "home";
+      }
+
+      function isDesktopFullPageEnabled() {
+        return desktopFullPageMedia.matches;
+      }
+
+      function getSectionIndex(id) {
+        return validSectionIds.indexOf(getValidSectionId(id));
+      }
+
+      function getActiveSectionIndex() {
+        return Math.max(getSectionIndex(activeSectionId), 0);
+      }
+
+      function clearSectionAnimationLock() {
+        isSectionAnimating = false;
+        window.clearTimeout(sectionAnimationTimerId);
+        sectionAnimationTimerId = null;
+      }
+
+      function lockSectionAnimation() {
+        clearSectionAnimationLock();
+        isSectionAnimating = true;
+        sectionAnimationTimerId = window.setTimeout(() => {
+          clearSectionAnimationLock();
+        }, sectionAnimationDuration);
+      }
+
+      function scrollToSection(id, behavior = "smooth") {
+        const targetId = getValidSectionId(id);
+        const section = getSectionById(targetId);
+        if (!section) return;
+
+        activeSectionId = targetId;
+
+        if (!isDesktopFullPageEnabled()) {
+          section.scrollIntoView({ behavior, block: "start" });
+          return;
+        }
+
+        const top = section.offsetTop;
+
+        if (behavior === "auto") {
+          clearSectionAnimationLock();
+          pageShell.scrollTop = top;
+          return;
+        }
+
+        lockSectionAnimation();
+        pageShell.scrollTo({ top, behavior });
+      }
+
+      function moveToSectionByIndex(index, options = {}) {
+        const safeIndex = Math.min(Math.max(index, 0), sectionSequence.length - 1);
+        const targetId = sectionSequence[safeIndex]?.id;
+        if (!targetId) return;
+
+        const behavior = options.behavior || "smooth";
+        const pushHistory = options.pushHistory !== false;
+
+        setActiveLink(targetId);
+        if (pushHistory) {
+          history.pushState({ view: targetId }, "", "#" + targetId);
+        }
+        scrollToSection(targetId, behavior);
+      }
+
+      function findScrollablePanel(target) {
+        return target instanceof Element ? target.closest(".section-panel .content-block") : null;
+      }
+
+      function panelCanScroll(panel, direction) {
+        if (!panel) return false;
+
+        const maxScrollTop = panel.scrollHeight - panel.clientHeight;
+        if (maxScrollTop <= 2) return false;
+
+        if (direction > 0) {
+          return panel.scrollTop + panel.clientHeight < panel.scrollHeight - 2;
+        }
+
+        return panel.scrollTop > 2;
+      }
+
+      function shouldIgnoreKeyboardFullPage(event) {
+        if (!(event.target instanceof Element)) return false;
+
+        return Boolean(
+          event.target.closest(
+            'button, a, input, textarea, select, [contenteditable="true"], [role="button"]'
+          )
+        );
+      }
 
       function renderTagList(container, tags) {
         container.innerHTML = "";
@@ -271,9 +379,11 @@
         });
       }
 
-      function setActiveLink(id) {
+      function setActiveLink(id, syncHash = false) {
+        activeSectionId = getValidSectionId(id);
+
         navLinks.forEach((link) => {
-          const isActive = link.getAttribute("href") === "#" + id;
+          const isActive = link.getAttribute("href") === "#" + activeSectionId;
           link.classList.toggle("is-active", isActive);
           if (isActive) {
             link.setAttribute("aria-current", "page");
@@ -281,6 +391,14 @@
             link.removeAttribute("aria-current");
           }
         });
+
+        if (
+          syncHash &&
+          !document.body.classList.contains("project-detail-open") &&
+          window.location.hash !== "#" + activeSectionId
+        ) {
+          history.replaceState({ view: activeSectionId }, "", "#" + activeSectionId);
+        }
       }
 
       function renderStaticContent() {
@@ -345,6 +463,7 @@
 
       function showProjectList(pushHistory = true) {
         document.body.classList.remove("project-detail-open");
+        document.documentElement.classList.remove("project-detail-open");
         projectListView.hidden = false;
         projectDetailView.hidden = true;
         projectListView.classList.add("is-visible");
@@ -358,6 +477,7 @@
       function showProjectDetail(key, pushHistory = true) {
         renderProject(key);
         document.body.classList.add("project-detail-open");
+        document.documentElement.classList.add("project-detail-open");
         projectListView.hidden = true;
         projectDetailView.hidden = false;
         projectListView.classList.remove("is-visible");
@@ -369,9 +489,16 @@
       }
 
       navLinks.forEach((link) => {
-        link.addEventListener("click", () => {
+        link.addEventListener("click", (event) => {
+          event.preventDefault();
           const targetId = link.getAttribute("href")?.replace("#", "");
-          if (targetId) setActiveLink(targetId);
+          if (!targetId) return;
+
+          if (document.body.classList.contains("project-detail-open")) {
+            showProjectList(false);
+          }
+
+          moveToSectionByIndex(getSectionIndex(targetId));
         });
       });
 
@@ -403,7 +530,14 @@
           return;
         }
 
-        showProjectList(false);
+        const targetId = getValidSectionId(event.state?.view || window.location.hash.replace("#", ""));
+
+        if (document.body.classList.contains("project-detail-open")) {
+          showProjectList(false);
+        }
+
+        setActiveLink(targetId);
+        scrollToSection(targetId, "auto");
       });
 
       const sectionObserver = new IntersectionObserver(
@@ -412,8 +546,8 @@
             .filter((entry) => entry.isIntersecting)
             .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
 
-          if (visibleEntries[0]) {
-            setActiveLink(visibleEntries[0].target.id);
+          if (visibleEntries[0] && !isSectionAnimating) {
+            setActiveLink(visibleEntries[0].target.id, true);
           }
         },
         {
@@ -423,8 +557,84 @@
       );
 
       observedSections.forEach((section) => sectionObserver.observe(section));
+
+      pageShell.addEventListener(
+        "wheel",
+        (event) => {
+          if (!isDesktopFullPageEnabled() || document.body.classList.contains("project-detail-open")) {
+            return;
+          }
+
+          const direction = Math.sign(event.deltaY);
+          if (!direction) return;
+
+          const panel = findScrollablePanel(event.target);
+          if (panelCanScroll(panel, direction)) {
+            return;
+          }
+
+          event.preventDefault();
+
+          if (isSectionAnimating) {
+            return;
+          }
+
+          moveToSectionByIndex(getActiveSectionIndex() + direction);
+        },
+        { passive: false }
+      );
+
+      window.addEventListener("keydown", (event) => {
+        if (!isDesktopFullPageEnabled() || document.body.classList.contains("project-detail-open")) {
+          return;
+        }
+
+        if (shouldIgnoreKeyboardFullPage(event)) {
+          return;
+        }
+
+        let nextIndex = null;
+
+        if (event.key === "ArrowDown" || event.key === "PageDown") {
+          nextIndex = getActiveSectionIndex() + 1;
+        } else if (event.key === "ArrowUp" || event.key === "PageUp") {
+          nextIndex = getActiveSectionIndex() - 1;
+        } else if (event.key === "Home") {
+          nextIndex = 0;
+        } else if (event.key === "End") {
+          nextIndex = sectionSequence.length - 1;
+        } else if (event.key === " " && !event.shiftKey) {
+          nextIndex = getActiveSectionIndex() + 1;
+        } else if (event.key === " " && event.shiftKey) {
+          nextIndex = getActiveSectionIndex() - 1;
+        }
+
+        if (nextIndex === null) return;
+
+        event.preventDefault();
+
+        if (isSectionAnimating) {
+          return;
+        }
+
+        moveToSectionByIndex(nextIndex);
+      });
+
+      desktopFullPageMedia.addEventListener("change", () => {
+        clearSectionAnimationLock();
+        requestAnimationFrame(() => {
+          scrollToSection(activeSectionId, "auto");
+        });
+      });
+
       setLanguage(currentLanguage);
-      history.replaceState({ view: "projects" }, "", window.location.hash || "#home");
+
+      const initialHash = getValidSectionId(window.location.hash.replace("#", ""));
+      setActiveLink(initialHash);
+      history.replaceState({ view: initialHash }, "", "#" + initialHash);
+      requestAnimationFrame(() => {
+        scrollToSection(initialHash, "auto");
+      });
     </script>
   </body>
 </html>

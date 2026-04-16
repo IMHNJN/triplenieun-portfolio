@@ -18,11 +18,14 @@
 }
 
 html {
+  height: 100%;
   scroll-behavior: smooth;
 }
 
 body {
   margin: 0;
+  height: 100%;
+  overflow: hidden;
   min-height: 100vh;
   color: var(--text-main);
   font-family: "Instrument Sans", sans-serif;
@@ -58,8 +61,12 @@ h3 {
 }
 
 .page-shell {
+  height: 100vh;
+  width: calc(100vw - var(--nav-width));
+  overflow: hidden;
+  scroll-behavior: smooth;
   padding-left: min(19vw, 185px);
-  padding-right: calc(var(--nav-width) + 84px);
+  padding-right: 84px;
 }
 
 .side-nav {
@@ -72,20 +79,21 @@ h3 {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(246, 239, 227, 0.36);
-  backdrop-filter: blur(8px);
+  background: #f5edde;
   z-index: 10;
 }
 
 .language-toggle {
-  position: absolute;
+  position: fixed;
   top: 28px;
+  right: calc(var(--nav-width) + 28px);
   display: inline-flex;
   gap: 6px;
   padding: 4px;
   border: 1px solid var(--line);
   border-radius: 999px;
-  background: rgba(255, 248, 240, 0.72);
+  background: #fff8f0;
+  z-index: 40;
 }
 
 .lang-button {
@@ -177,14 +185,49 @@ h3 {
 }
 
 .section {
+  height: 100vh;
   min-height: 100vh;
   display: flex;
   align-items: center;
-  scroll-margin-top: 28px;
+  overflow: hidden;
+  padding: clamp(44px, 7vh, 84px) 0;
 }
 
 .content-block {
   width: min(var(--content-width), 100%);
+  max-width: 100%;
+}
+
+.section-panel {
+  align-items: stretch;
+}
+
+.section-panel .content-block {
+  height: 100%;
+  overflow-y: auto;
+  overscroll-behavior-y: contain;
+  padding-right: 14px;
+}
+
+.page-shell,
+.section-panel .content-block,
+.project-detail {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.page-shell::-webkit-scrollbar,
+.section-panel .content-block::-webkit-scrollbar,
+.project-detail::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  display: none;
+}
+
+#projects .content-block {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .hero-block {
@@ -469,7 +512,7 @@ h3 {
 @media (max-width: 1000px) {
   .page-shell {
     padding-left: 56px;
-    padding-right: calc(var(--nav-width) + 42px);
+    padding-right: 42px;
   }
 
   .detail-grid {
@@ -486,7 +529,16 @@ h3 {
     --nav-width: 100%;
   }
 
+  html,
+  body {
+    height: auto;
+    overflow: auto;
+  }
+
   .page-shell {
+    width: 100%;
+    height: auto;
+    overflow: visible;
     padding: 0 24px 110px;
   }
 
@@ -500,8 +552,8 @@ h3 {
   }
 
   .language-toggle {
-    top: 14px;
-    right: 20px;
+    top: 18px;
+    right: 24px;
   }
 
   .side-nav-links {
@@ -522,13 +574,34 @@ h3 {
   }
 
   .section {
+    height: auto;
     min-height: auto;
+    overflow: visible;
     padding: 110px 0 36px;
+  }
+
+  .section-panel .content-block {
+    height: auto;
+    overflow: visible;
+    padding-right: 0;
+  }
+
+  #projects .content-block {
+    display: block;
   }
 
   .project-detail {
     inset: 0 0 88px 0;
+    overflow-y: auto;
+    overscroll-behavior-y: contain;
+    -webkit-overflow-scrolling: touch;
     padding: 84px 24px 32px;
+  }
+
+  html.project-detail-open,
+  body.project-detail-open,
+  body.project-detail-open .page-shell {
+    overflow: hidden;
   }
 
   h1 {
