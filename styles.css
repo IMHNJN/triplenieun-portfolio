@@ -1,22 +1,30 @@
 :root {
-  --bg-main: #364f6b;
-  --bg-deep: #26384c;
-  --bg-elevated: rgba(255, 255, 255, 0.04);
-  --text-main: #f5f5f5;
-  --text-muted: rgba(245, 245, 245, 0.72);
-  --accent: #F1FF5E;
-  --accent-soft: rgba(252, 81, 133, 0.18);
-  --secondary: #3fc1c9;
-  --line: rgba(245, 245, 245, 0.12);
-  --button: #F1FF5E;
-  --button-text: #26384c;
-  --surface: rgba(63, 193, 201, 0.12);
-  --surface-strong: rgba(63, 193, 201, 0.22);
-  --surface-pill: rgba(235, 252, 81, 0.14);
-  --tag-surface: rgba(63, 193, 201, 0.18);
-  --nav-surface: linear-gradient(180deg, #314761 0%, var(--bg-deep) 100%);
-  --nav-text: rgba(245, 245, 245, 0.64);
-  --glow: rgba(63, 193, 201, 0.18);
+  --bg-main: #f6f7fb;
+  --bg-deep: #eef2f7;
+  --bg-top: #ffffff;
+  --text-main: #0f172a;
+  --text-muted: #627185;
+  --accent: #173b63;
+  --interactive: #2563eb;
+  --line: #e2e8f0;
+  --line-strong: #bfdbfe;
+  --button: #173b63;
+  --button-hover: #0f2f52;
+  --button-text: #ffffff;
+  --surface: #ffffff;
+  --surface-strong: #f8fafc;
+  --surface-pill: #eff6ff;
+  --tag-surface: #f1f5f9;
+  --nav-surface: rgba(255, 255, 255, 0.9);
+  --nav-text: #627185;
+  --glow: rgba(37, 99, 235, 0.08);
+  --control-surface: rgba(255, 255, 255, 0.86);
+  --focus-ring: rgba(37, 99, 235, 0.32);
+  --shadow-card: 0 12px 32px rgba(15, 23, 42, 0.06);
+  --shadow-card-hover: 0 16px 36px rgba(15, 23, 42, 0.1);
+  --shadow-nav: -8px 0 30px rgba(15, 23, 42, 0.04);
+  --shadow-nav-mobile: 0 -8px 30px rgba(15, 23, 42, 0.04);
+  --timeline-line: #cbd5e1;
   --content-width: 720px;
   --nav-width: 126px;
 }
@@ -38,7 +46,7 @@ body {
   color: var(--text-main);
   font-family: "Instrument Sans", sans-serif;
   background:
-    linear-gradient(180deg, #415d7c 0%, var(--bg-main) 38%, var(--bg-deep) 100%);
+    linear-gradient(180deg, var(--bg-top) 0%, var(--bg-main) 48%, var(--bg-deep) 100%);
 }
 
 body.project-detail-open {
@@ -53,6 +61,12 @@ button {
 
 a {
   text-decoration: none;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 4px;
 }
 
 button {
@@ -87,6 +101,8 @@ h3 {
   align-items: center;
   justify-content: center;
   background: var(--nav-surface);
+  box-shadow: var(--shadow-nav);
+  backdrop-filter: blur(18px);
   z-index: 10;
 }
 
@@ -99,7 +115,8 @@ h3 {
   padding: 4px;
   border: 1px solid var(--line);
   border-radius: 999px;
-  background: rgba(38, 56, 76, 0.78);
+  background: var(--control-surface);
+  box-shadow: var(--shadow-card);
   backdrop-filter: blur(14px);
   z-index: 40;
 }
@@ -135,6 +152,10 @@ h3 {
   color: var(--nav-text);
   font-size: 0.78rem;
   transition: color 0.2s ease;
+}
+
+.nav-link:hover {
+  color: var(--interactive);
 }
 
 .nav-link::before {
@@ -303,6 +324,12 @@ h3 {
 
 .inline-links a {
   font-size: 0.96rem;
+  color: var(--accent);
+  transition: color 0.2s ease;
+}
+
+.inline-links a:hover {
+  color: var(--interactive);
 }
 
 .section-head {
@@ -327,16 +354,18 @@ h3 {
   padding: 18px 16px;
   border-radius: 14px;
   background: var(--surface);
-  border: 1px solid rgba(63, 193, 201, 0.1);
-  box-shadow: 15px 15px 15px -10px rgba(25, 39, 58, 0.18);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-card);
   cursor: pointer;
   text-align: left;
-  transition: background 0.2s ease, transform 0.2s ease;
+  transition: background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
 }
 
 .project-row:hover,
 .project-row.is-selected {
   background: var(--surface-strong);
+  border-color: var(--line-strong);
+  box-shadow: var(--shadow-card-hover);
   transform: translateY(-1px);
 }
 
@@ -354,7 +383,7 @@ h3 {
 }
 
 .project-arrow {
-  color: var(--accent);
+  color: var(--interactive);
   font-size: 1.5rem;
   flex-shrink: 0;
 }
@@ -372,15 +401,19 @@ h3 {
     min(19vw, 185px);
   background:
     radial-gradient(circle at top left, var(--glow), transparent 32%),
-    radial-gradient(circle at 82% 16%, rgba(252, 81, 133, 0.1), transparent 22%),
-    linear-gradient(180deg, #415d7c 0%, var(--bg-main) 34%, var(--bg-deep) 100%);
+    linear-gradient(180deg, var(--bg-top) 0%, var(--bg-main) 42%, var(--bg-deep) 100%);
 }
 
 .back-link {
   cursor: pointer;
   display: inline-block;
   margin-bottom: 24px;
+  color: var(--accent);
   font-size: 0.96rem;
+}
+
+.back-link:hover {
+  color: var(--interactive);
 }
 
 .status-pill {
@@ -391,8 +424,8 @@ h3 {
   padding: 8px 12px;
   border-radius: 999px;
   background: var(--surface-pill);
-  color: var(--text-main);
-  border: 1px solid rgba(252, 81, 133, 0.18);
+  color: var(--accent);
+  border: 1px solid var(--line-strong);
   font-size: 0.92rem;
 }
 
@@ -400,7 +433,7 @@ h3 {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: var(--accent);
+  background: var(--interactive);
 }
 
 .detail-summary {
@@ -421,8 +454,8 @@ h3 {
   padding: 6px 10px;
   border-radius: 8px;
   background: var(--tag-surface);
-  color: var(--text-main);
-  border: 1px solid rgba(63, 193, 201, 0.12);
+  color: var(--accent);
+  border: 1px solid var(--line);
   font-size: 0.88rem;
 }
 
@@ -472,7 +505,7 @@ h3 {
   top: 6px;
   bottom: 6px;
   width: 1px;
-  background: rgba(63, 193, 201, 0.24);
+  background: var(--timeline-line);
 }
 
 .timeline-item {
@@ -489,7 +522,7 @@ h3 {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: var(--accent);
+  background: var(--interactive);
 }
 
 .timeline-period {
@@ -521,6 +554,14 @@ h3 {
   background: var(--button);
   color: var(--button-text);
   font-weight: 600;
+  box-shadow: var(--shadow-card);
+  transition: background 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.contact-button:hover {
+  background: var(--button-hover);
+  box-shadow: var(--shadow-card-hover);
+  transform: translateY(-1px);
 }
 
 @media (max-width: 1000px) {
@@ -563,6 +604,7 @@ h3 {
     height: 88px;
     border-left: 0;
     border-top: 1px solid var(--line);
+    box-shadow: var(--shadow-nav-mobile);
   }
 
   .language-toggle {
