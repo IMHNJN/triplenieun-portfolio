@@ -12,6 +12,30 @@ window.portfolioContent = {
       role: "역할",
       outcome: "결과",
       items: {
+        yeodam: {
+          listTitle: "생성형 AI기반 일정 자동화 여행 협업 플래너, 여담",
+          listSummary:
+            "사용자가 선택한 여행지를 AI 일정, 협업 칸반, 경로·준비물 관리로 연결한 여행 계획 서비스를 구현했습니다.",
+          title: "생성형 AI기반 일정 자동화 여행 협업 플래너, 여담",
+          status: "프로젝트",
+          summary:
+            "여담은 사용자가 선택한 관광지를 바탕으로 여행 생성부터 AI 일정 초안, 동행자 협업 칸반, 교통수단별 경로 확인, 준비물 체크까지 이어지는 계획 과정을 한곳에서 관리하는 AI 기반 여행 계획 서비스입니다. 장소 선택과 일정 조정부터 여행 실행 전 준비까지의 흐름을 하나의 서비스 경험으로 연결했습니다.",
+          role:
+            "프론트엔드 개발 리드와 Spring Security를 맡아 로그인 요청을 필터에서 가로채 인증하고 JWT를 발급·검증하는 필터 기반 인증 흐름을 구현했습니다. ADMIN/EDITOR/VIEWER 권한 모델을 적용하고, Vue.js 화면, 여행 생성·관광지 추가, 협업 칸반, 경로 확인, 준비물 체크리스트, 변경 이력 표시를 개발했습니다. Figma 와이어프레임, Vite 설정, 통합 테스트·UX 보완과 Redis 캐시 구성에도 참여했습니다.",
+          outcome:
+            "장소 선택부터 AI 일정 구성, 협업 편집, 경로 확인, 준비물 체크까지의 흐름을 연결하며 외부 API 연동, 권한 모델, 캐싱을 포함한 서비스 구현 경험을 쌓았습니다.",
+          tags: [
+            "Vue.js",
+            "Spring Boot",
+            "Spring Security",
+            "JWT",
+            "MySQL",
+            "MyBatis",
+            "Redis",
+            "Vite",
+            "GPT-4o-mini",
+          ],
+        },
         community: {
           listTitle: "외국인 유학생을 위한 대학 커뮤니티 서비스",
           listSummary:
@@ -112,6 +136,30 @@ window.portfolioContent = {
       role: "Role",
       outcome: "Outcome",
       items: {
+        yeodam: {
+          listTitle: "Yeodam, a Generative AI-Powered Automated Travel Collaboration Planner",
+          listSummary:
+            "Built a travel planning service that connects user-selected places with AI scheduling, collaborative editing, route comparison, and packing management.",
+          title: "Yeodam, a Generative AI-Powered Automated Travel Collaboration Planner",
+          status: "Project",
+          summary:
+            "Yeodam is an AI travel planning service that brings together trip creation, AI itinerary drafts, collaborative kanban editing, transport-specific route review, and packing checklists in one planning flow. It connects place selection and schedule coordination with the preparation needed before a trip.",
+          role:
+            "Led frontend development and Spring Security work by implementing a filter-based authentication flow that intercepts login requests and issues and verifies JWTs. I applied the ADMIN/EDITOR/VIEWER authorization model and built Vue.js screens, trip creation and place-add flows, the collaborative kanban, route review, packing checklist, and change-history views. I also contributed to Figma wireframes, Vite setup, integration testing, UX refinement, and Redis cache configuration.",
+          outcome:
+            "Connected place selection, AI itinerary generation, collaborative editing, route review, and packing into one product flow while gaining experience with external API integration, authorization models, and caching.",
+          tags: [
+            "Vue.js",
+            "Spring Boot",
+            "Spring Security",
+            "JWT",
+            "MySQL",
+            "MyBatis",
+            "Redis",
+            "Vite",
+            "GPT-4o-mini",
+          ],
+        },
         community: {
           listTitle: "Community Platform for International Students",
           listSummary:
