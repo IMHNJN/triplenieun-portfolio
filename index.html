@@ -80,6 +80,7 @@
               <span id="detail-status"></span>
             </p>
             <p id="detail-summary" class="detail-summary"></p>
+            <dl id="detail-meta" class="detail-meta" hidden></dl>
             <div id="detail-tags" class="tag-list"></div>
             <div class="detail-grid">
               <div>
@@ -91,6 +92,26 @@
                 <p id="detail-outcome"></p>
               </div>
             </div>
+
+            <figure id="detail-hero" class="detail-hero" hidden>
+              <img id="detail-hero-image" alt="" loading="lazy" decoding="async" />
+              <figcaption id="detail-hero-caption"></figcaption>
+            </figure>
+
+            <section id="detail-highlights-section" class="detail-section" hidden>
+              <h4 id="detail-highlights-heading"></h4>
+              <div id="detail-highlights" class="detail-highlight-grid"></div>
+            </section>
+
+            <section id="detail-challenges-section" class="detail-section" hidden>
+              <h4 id="detail-challenges-heading"></h4>
+              <div id="detail-challenges" class="detail-challenge-list"></div>
+            </section>
+
+            <section id="detail-media-section" class="detail-section" hidden>
+              <h4 id="detail-media-heading"></h4>
+              <div id="detail-media" class="detail-media-grid"></div>
+            </section>
           </article>
         </div>
       </section>
@@ -147,7 +168,7 @@
         contact: document.querySelector('[data-nav="contact"]'),
       };
       const langButtons = document.querySelectorAll(".lang-button");
-      const observedSections = document.querySelectorAll("main section[id]");
+      const observedSections = document.querySelectorAll("main > section[id]");
       const projectList = document.getElementById("project-list");
       const projectListView = document.getElementById("project-list-view");
       const projectDetailView = document.getElementById("project-detail-view");
@@ -163,6 +184,19 @@
       const detailOutcomeLabel = document.getElementById("detail-outcome-label");
       const detailOutcome = document.getElementById("detail-outcome");
       const detailTags = document.getElementById("detail-tags");
+      const detailMeta = document.getElementById("detail-meta");
+      const detailHero = document.getElementById("detail-hero");
+      const detailHeroImage = document.getElementById("detail-hero-image");
+      const detailHeroCaption = document.getElementById("detail-hero-caption");
+      const detailHighlightsSection = document.getElementById("detail-highlights-section");
+      const detailHighlightsHeading = document.getElementById("detail-highlights-heading");
+      const detailHighlights = document.getElementById("detail-highlights");
+      const detailChallengesSection = document.getElementById("detail-challenges-section");
+      const detailChallengesHeading = document.getElementById("detail-challenges-heading");
+      const detailChallenges = document.getElementById("detail-challenges");
+      const detailMediaSection = document.getElementById("detail-media-section");
+      const detailMediaHeading = document.getElementById("detail-media-heading");
+      const detailMedia = document.getElementById("detail-media");
       const experienceHeading = document.getElementById("experience-heading");
       const experienceIntroStrong = document.getElementById("experience-intro-strong");
       const experienceIntroText = document.getElementById("experience-intro-text");
@@ -292,6 +326,163 @@
         });
       }
 
+      function renderProjectMeta(project, dictionary) {
+        const items = [
+          project.period ? [dictionary.period, project.period] : null,
+          project.projectType ? [dictionary.projectType, project.projectType] : null,
+        ].filter(Boolean);
+
+        detailMeta.replaceChildren();
+        detailMeta.hidden = items.length === 0;
+
+        items.forEach(([label, value]) => {
+          const item = document.createElement("div");
+          item.className = "detail-meta-item";
+
+          const term = document.createElement("dt");
+          term.textContent = label;
+
+          const description = document.createElement("dd");
+          description.textContent = value;
+
+          item.append(term, description);
+          detailMeta.appendChild(item);
+        });
+      }
+
+      function renderProjectHero(heroImage) {
+        detailHero.hidden = !heroImage;
+
+        if (!heroImage) {
+          detailHeroImage.removeAttribute("src");
+          detailHeroImage.alt = "";
+          detailHeroCaption.textContent = "";
+          return;
+        }
+
+        detailHeroImage.src = heroImage.src;
+        detailHeroImage.alt = heroImage.alt;
+        detailHeroCaption.textContent = heroImage.caption;
+      }
+
+      function renderProjectHighlights(project, dictionary) {
+        const highlights = project.highlights || [];
+        detailHighlightsSection.hidden = highlights.length === 0;
+        detailHighlightsHeading.textContent = dictionary.highlights;
+        detailHighlights.replaceChildren();
+
+        highlights.forEach((highlight, index) => {
+          const article = document.createElement("article");
+          article.className = "detail-highlight-card";
+
+          const number = document.createElement("span");
+          number.className = "detail-card-number";
+          number.textContent = String(index + 1).padStart(2, "0");
+          number.setAttribute("aria-hidden", "true");
+
+          const title = document.createElement("h5");
+          title.textContent = highlight.title;
+
+          const body = document.createElement("p");
+          body.textContent = highlight.body;
+
+          article.append(number, title, body);
+          detailHighlights.appendChild(article);
+        });
+      }
+
+      function createChallengeRow(label, copy) {
+        const row = document.createElement("div");
+        row.className = "detail-challenge-row";
+
+        const heading = document.createElement("p");
+        heading.className = "detail-challenge-label";
+        heading.textContent = label;
+
+        const body = document.createElement("p");
+        body.textContent = copy;
+
+        row.append(heading, body);
+        return row;
+      }
+
+      function renderProjectChallenges(project, dictionary) {
+        const challenges = project.challenges || [];
+        detailChallengesSection.hidden = challenges.length === 0;
+        detailChallengesHeading.textContent = dictionary.challenges;
+        detailChallenges.replaceChildren();
+
+        challenges.forEach((challenge) => {
+          const article = document.createElement("article");
+          article.className = "detail-challenge-card";
+
+          const title = document.createElement("h5");
+          title.textContent = challenge.title;
+
+          article.append(
+            title,
+            createChallengeRow(dictionary.problem, challenge.problem),
+            createChallengeRow(dictionary.solution, challenge.solution),
+            createChallengeRow(dictionary.result, challenge.result)
+          );
+          detailChallenges.appendChild(article);
+        });
+      }
+
+      function renderProjectMedia(project, dictionary) {
+        const media = project.media || {};
+        const videos = media.videos || [];
+
+        detailMediaSection.hidden = videos.length === 0;
+        detailMediaHeading.textContent = dictionary.media;
+        detailMedia.replaceChildren();
+
+        videos.forEach((item) => {
+          const figure = document.createElement("figure");
+          figure.className = "detail-media-card";
+
+          const video = document.createElement("video");
+          video.controls = true;
+          video.muted = true;
+          video.defaultMuted = true;
+          video.playsInline = true;
+          video.preload = "none";
+          video.poster = item.poster;
+          video.setAttribute("aria-label", item.title);
+          video.dataset.mediaLazy = "true";
+
+          const source = document.createElement("source");
+          source.dataset.src = item.src;
+          source.type = "video/mp4";
+          video.append(source, document.createTextNode(dictionary.videoFallback));
+
+          const caption = document.createElement("figcaption");
+          const title = document.createElement("strong");
+          title.textContent = item.title;
+          const description = document.createElement("span");
+          description.textContent = item.description;
+          caption.append(title, description);
+
+          figure.append(video, caption);
+          detailMedia.appendChild(figure);
+        });
+      }
+
+      function activateProjectMedia() {
+        projectDetailView.querySelectorAll("video[data-media-lazy]").forEach((video) => {
+          const source = video.querySelector("source[data-src]");
+          if (!source || source.src) return;
+
+          source.src = source.dataset.src;
+          video.preload = "metadata";
+          video.load();
+        });
+      }
+
+      function pauseProjectMedia() {
+        projectDetailView.querySelectorAll("video").forEach((video) => video.pause());
+      }
+
       function renderProjectList() {
         const items = content[currentLanguage].projects.items;
 
@@ -411,6 +602,7 @@
       function renderProject(key) {
         const project = content[currentLanguage].projects.items[key];
         if (!project) return;
+        const dictionary = content[currentLanguage].projects;
 
         currentProjectKey = key;
         detailTitle.textContent = project.title;
@@ -420,10 +612,11 @@
         detailOutcome.textContent = project.outcome;
 
         renderTagList(detailTags, project.tags);
-
-        document.querySelectorAll(".project-row").forEach((row) => {
-          row.classList.toggle("is-selected", row.dataset.project === key);
-        });
+        renderProjectMeta(project, dictionary);
+        renderProjectHero(project.heroImage);
+        renderProjectHighlights(project, dictionary);
+        renderProjectChallenges(project, dictionary);
+        renderProjectMedia(project, dictionary);
       }
 
       function setLanguage(language) {
@@ -437,9 +630,13 @@
 
         renderStaticContent();
         renderProject(currentProjectKey);
+        if (document.body.classList.contains("project-detail-open")) {
+          activateProjectMedia();
+        }
       }
 
       function showProjectList(pushHistory = true) {
+        pauseProjectMedia();
         document.body.classList.remove("project-detail-open");
         document.documentElement.classList.remove("project-detail-open");
         projectListView.hidden = false;
@@ -460,6 +657,8 @@
         projectDetailView.hidden = false;
         projectListView.classList.remove("is-visible");
         projectDetailView.classList.add("is-visible");
+        projectDetailView.scrollTop = 0;
+        activateProjectMedia();
 
         if (pushHistory) {
           history.pushState({ view: "project-detail", project: key }, "", "#projects");

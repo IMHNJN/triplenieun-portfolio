@@ -11,7 +11,100 @@ window.portfolioContent = {
       back: "< 뒤로",
       role: "역할",
       outcome: "결과",
+      period: "기간",
+      projectType: "형태",
+      highlights: "핵심 기여",
+      challenges: "문제 해결",
+      media: "시연 영상",
+      problem: "문제",
+      solution: "해결",
+      result: "결과",
+      videoFallback: "브라우저에서 영상을 재생할 수 없습니다.",
       items: {
+        eyesonu: {
+          listTitle: "AI 기반 CCTV 관제 시스템, EyesOnU",
+          listSummary:
+            "관리자와 장비의 인증 경계를 분리하고, 재시도에도 안전한 녹화 영상 수집 파이프라인을 구축했습니다.",
+          title: "AI 기반 CCTV 관제 시스템, EyesOnU",
+          status: "대표 프로젝트",
+          period: "2026.07–2026.08",
+          projectType: "팀 프로젝트 / MVP",
+          summary:
+            "EyesOnU는 실종 사건의 인상착의를 바탕으로 AI가 CCTV 후보 장면을 선별하고, 관제 관리자가 직접 검토해 확정 동선을 만드는 수색 지원 시스템입니다. AI가 신원을 자동 확정하지 않는 Human-in-the-loop 구조로 설계했습니다.",
+          role:
+            "백엔드 중심 개발자로서 관리자·미디어 장비·AI 모듈을 연결하는 중앙 API를 담당했습니다. 인증·인가, 관리자 계정, 사건·CCTV 관리, 녹화 영상 수집, 확정 동선 API를 구현하고 핵심 운영 화면을 Vue 대시보드까지 연결했습니다.",
+          outcome:
+            "브라우저와 장비의 보안 경계를 분리하고, Presigned URL과 서버 생성 Object Key, DB 유니크 제약을 결합해 대용량 영상이 재시도와 동시 요청 상황에서도 하나의 결과로 수렴하도록 만들었습니다. 실제 MySQL 동시성 테스트와 GitLab CI로 정합성과 변경 검증을 자동화했습니다.",
+          tags: [
+            "Java 21",
+            "Spring Boot",
+            "Spring Security",
+            "MyBatis",
+            "MySQL",
+            "MinIO",
+            "RabbitMQ",
+            "Vue 3",
+            "Docker",
+            "GitLab CI",
+          ],
+          heroImage: {
+            src: "./assets/projects/eyesonu/dashboard.webp",
+            alt: "사건 현황과 최근 사건 목록을 보여주는 EyesOnU 관리자 대시보드",
+            caption: "사건·후보 탐지 현황을 한눈에 확인하는 관리자 운영 대시보드",
+          },
+          highlights: [
+            {
+              title: "사용자 유형별 인증 경계",
+              body: "관리자 브라우저에는 세션·CSRF 보호를, 미디어 장비에는 X-Device-Key 기반 Stateless 인증을 적용하고 ADMIN과 SUPER_ADMIN 권한 정책을 분리했습니다.",
+            },
+            {
+              title: "안전한 녹화 영상 수집",
+              body: "영상 본문은 Presigned PUT URL로 MinIO에 직접 전송하고, 완료 등록 시 객체 크기·형식·MP4 시그니처와 서버 생성 경로를 검증했습니다.",
+            },
+            {
+              title: "관제 흐름의 수직 구현",
+              body: "사건 등록, CCTV 관리, 후보 판정, 확정 동선 조회까지 핵심 API와 Vue 화면을 연결해 실제 관리자의 업무 흐름으로 완성했습니다.",
+            },
+          ],
+          challenges: [
+            {
+              title: "서로 다른 인증 주체를 하나의 API에서 안전하게 분리하기",
+              problem:
+                "민감 정보를 다루는 관리자 브라우저와 사용자가 없는 미디어 장비는 세션 상태와 공격 표면이 달라 하나의 인증 정책으로 보호하기 어려웠습니다.",
+              solution:
+                "Spring Security의 복수 SecurityFilterChain으로 경로별 정책을 분리했습니다. 관리자에는 세션 고정 방지·단일 세션·CSRF를 적용하고, 장비 API는 Device Key와 카메라 소유권을 검증하는 Stateless 체인으로 구성했습니다.",
+              result:
+                "비활성 계정의 기존 세션과 권한 밖 장비 요청을 차단하고, 민감 조회와 계정 변경을 감사 가능한 보안 경계 안에 배치했습니다.",
+            },
+            {
+              title: "재시도와 동시 요청에도 중복되지 않는 영상 등록",
+              problem:
+                "네트워크 오류로 같은 완료 요청이 반복되거나 동시에 도착할 때 사전 중복 조회만으로는 녹화 메타데이터가 여러 건 생성될 수 있었습니다.",
+              solution:
+                "서버 생성 Object Key와 동일 UUID 멱등키를 사용하고, 요청 지문과 DB 유니크 제약으로 동일 요청은 재생하고 다른 요청은 충돌로 처리했습니다. MinIO 검증은 트랜잭션 밖에서 수행해 DB 잠금 시간도 줄였습니다.",
+              result:
+                "실제 MySQL 동시 요청 테스트에서 같은 요청은 하나의 녹화본과 멱등 레코드만 생성되고, 충돌한 트랜잭션은 안전하게 롤백됨을 확인했습니다.",
+            },
+          ],
+          media: {
+            videos: [
+              {
+                src: "./assets/projects/eyesonu/realtime-candidate-detection.mp4",
+                poster: "./assets/projects/eyesonu/realtime-candidate-detection-poster.webp",
+                title: "실시간 CCTV 후보 검출",
+                description:
+                  "실시간 CCTV 영상에서 인상착의와 일치하는 후보를 탐지하고 관제 화면에 전달하는 흐름입니다.",
+              },
+              {
+                src: "./assets/projects/eyesonu/recording-search-job.mp4",
+                poster: "./assets/projects/eyesonu/recording-search-job-poster.webp",
+                title: "과거 녹화 영상 탐색 작업 등록",
+                description:
+                  "사건·탐색 조건·카메라·기간을 선택해 녹화 영상 분석 작업을 등록하는 관리자 흐름입니다.",
+              },
+            ],
+          },
+        },
         yeodam: {
           listTitle: "생성형 AI기반 일정 자동화 여행 협업 플래너, 여담",
           listSummary:
@@ -87,8 +180,8 @@ window.portfolioContent = {
         "동안 프로젝트, 실무, 교육 활동을 통해 협업 감각과 책임감, 대인 관계 경험을 쌓아왔습니다.",
       primaryStack: "주요 스택",
       toolsStack: "도구 및 확장 경험",
-      primaryTags: ["Java", "Spring Boot", "REST API", "Git", "GitHub", "Swagger", "PyTorch"],
-      toolsTags: ["JavaScript", "AWS S3", "Docker", "PostgreSQL"],
+      primaryTags: ["Java", "Spring Boot", "Spring Security", "REST API", "MySQL", "MyBatis", "Git"],
+      toolsTags: ["MinIO", "RabbitMQ", "Docker", "GitLab CI", "Vue.js", "PyTorch", "AWS S3", "PostgreSQL"],
       timeline: [
         {
           period: "2026.01 - 현재",
@@ -135,7 +228,100 @@ window.portfolioContent = {
       back: "< Back",
       role: "Role",
       outcome: "Outcome",
+      period: "Period",
+      projectType: "Type",
+      highlights: "Key Contributions",
+      challenges: "Problem Solving",
+      media: "Demo Videos",
+      problem: "Problem",
+      solution: "Solution",
+      result: "Result",
+      videoFallback: "Your browser cannot play this video.",
       items: {
+        eyesonu: {
+          listTitle: "EyesOnU, an AI-Assisted CCTV Operations System",
+          listSummary:
+            "Built separate security boundaries for administrators and devices, plus a retry-safe recording ingestion pipeline.",
+          title: "EyesOnU, an AI-Assisted CCTV Operations System",
+          status: "Featured Project",
+          period: "Jul–Aug 2026",
+          projectType: "Team Project / MVP",
+          summary:
+            "EyesOnU helps search teams review CCTV footage after a missing-person report. AI narrows the footage to likely scenes, while an operations administrator reviews each candidate and builds a confirmed route, keeping the final identity decision in a human-in-the-loop workflow.",
+          role:
+            "As a backend-focused developer, I built the central API connecting administrators, media devices, and AI modules. I implemented authentication and authorization, administrator accounts, case and CCTV management, recording ingestion, and confirmed-route APIs, then connected the core workflows to the Vue operations dashboard.",
+          outcome:
+            "I separated browser and device trust boundaries and combined presigned uploads, server-generated object keys, request fingerprints, and database uniqueness constraints so retries and concurrent requests converge on one recording. MySQL concurrency tests and GitLab CI automated integrity and change validation.",
+          tags: [
+            "Java 21",
+            "Spring Boot",
+            "Spring Security",
+            "MyBatis",
+            "MySQL",
+            "MinIO",
+            "RabbitMQ",
+            "Vue 3",
+            "Docker",
+            "GitLab CI",
+          ],
+          heroImage: {
+            src: "./assets/projects/eyesonu/dashboard.webp",
+            alt: "EyesOnU administrator dashboard showing case metrics and a recent case list",
+            caption: "Operations dashboard for monitoring cases and candidate detections at a glance",
+          },
+          highlights: [
+            {
+              title: "Authentication Boundaries by Client Type",
+              body: "Applied session authentication and CSRF protection to administrator browsers, stateless X-Device-Key authentication to media devices, and separate ADMIN and SUPER_ADMIN policies.",
+            },
+            {
+              title: "Safe Recording Ingestion",
+              body: "Sent video bodies directly to MinIO with presigned PUT URLs, then validated the stored size, type, MP4 signature, and server-generated object path before registration.",
+            },
+            {
+              title: "End-to-End Operations Workflow",
+              body: "Connected the APIs and Vue screens for case creation, CCTV management, candidate review, and confirmed-route inspection into one administrator workflow.",
+            },
+          ],
+          challenges: [
+            {
+              title: "Separating Different Trust Subjects Within One API",
+              problem:
+                "Administrator browsers handling sensitive data and unattended media devices have different state and attack surfaces, making a single authentication policy insufficient.",
+              solution:
+                "I split path-specific policies with multiple Spring Security filter chains. Administrators use session fixation protection, a single-session policy, and CSRF, while device endpoints use stateless keys and camera ownership checks.",
+              result:
+                "The boundary blocks stale sessions from disabled accounts and rejects devices outside their camera scope while keeping sensitive account and case activity auditable.",
+            },
+            {
+              title: "Preventing Duplicate Recordings During Retries and Races",
+              problem:
+                "When completion requests are retried or arrive concurrently, a preliminary lookup alone can allow duplicate recording metadata to be created.",
+              solution:
+                "I paired server-generated object keys with UUID idempotency keys, request fingerprints, and a database uniqueness constraint. MinIO checks run outside the transaction to avoid holding database locks during network I/O.",
+              result:
+                "MySQL concurrency tests confirmed that matching requests create one recording and one idempotency record, while conflicting requests roll back safely.",
+            },
+          ],
+          media: {
+            videos: [
+              {
+                src: "./assets/projects/eyesonu/realtime-candidate-detection.mp4",
+                poster: "./assets/projects/eyesonu/realtime-candidate-detection-poster.webp",
+                title: "Real-Time CCTV Candidate Detection",
+                description:
+                  "A live CCTV feed detects a candidate matching the reported appearance and delivers the event to the operations interface.",
+              },
+              {
+                src: "./assets/projects/eyesonu/recording-search-job.mp4",
+                poster: "./assets/projects/eyesonu/recording-search-job-poster.webp",
+                title: "Recorded-Footage Search Registration",
+                description:
+                  "An administrator selects a case, search condition, camera, and time range to register a recorded-video analysis job.",
+              },
+            ],
+          },
+        },
         yeodam: {
           listTitle: "Yeodam, a Generative AI-Powered Automated Travel Collaboration Planner",
           listSummary:
@@ -211,8 +397,8 @@ window.portfolioContent = {
         "building teamwork, responsibility, and practical development experience through projects, operations, and education activities.",
       primaryStack: "Primary Stack",
       toolsStack: "Tools & Expansion",
-      primaryTags: ["Java", "Spring Boot", "REST API", "Git", "GitHub", "Swagger", "PyTorch"],
-      toolsTags: ["JavaScript", "AWS S3", "Docker", "PostgreSQL"],
+      primaryTags: ["Java", "Spring Boot", "Spring Security", "REST API", "MySQL", "MyBatis", "Git"],
+      toolsTags: ["MinIO", "RabbitMQ", "Docker", "GitLab CI", "Vue.js", "PyTorch", "AWS S3", "PostgreSQL"],
       timeline: [
         {
           period: "2026 - Present",
